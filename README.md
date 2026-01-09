@@ -1,6 +1,9 @@
+[![](https://img.shields.io/npm/v/vitest-react-serializer?color=success)](https://www.npmjs.com/package/vitest-react-serializer)
+[![](https://img.shields.io/github/actions/workflow/status/porada/vitest-react-serializer/test.yaml)](https://github.com/porada/vitest-react-serializer/actions/workflows/test.yaml)
+
 # vitest-react-serializer
 
-Serialize React components into formatted HTML. Built for human-readable, reviewable component [snapshot testing](https://vitest.dev/guide/snapshot.html) with Vitest.
+Serialize React components into formatted HTML. Built for human-readable, reviewable component [snapshot testing with Vitest](https://vitest.dev/guide/snapshot.html).
 
 ## Install
 
