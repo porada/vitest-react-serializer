@@ -1,6 +1,6 @@
 # vitest-react-serializer
 
-Serialize React components into formatted HTML. Built for human-readable, reviewable [snapshot testing](https://vitest.dev/guide/snapshot.html) with Vitest.
+Serialize React components into formatted HTML. Built for human-readable, reviewable component [snapshot testing](https://vitest.dev/guide/snapshot.html) with Vitest.
 
 ## Install
 
