@@ -21,14 +21,12 @@
 		"vitest"
 	],
 	"files": [
-		"src/**/*.ts",
-		"!**/*.snap",
-		"!**/*.test.ts",
-		"!**/*.test.tsx"
+		"dist/**"
 	],
 	"type": "module",
 	"sideEffects": false,
-	"exports": "./src/index.ts",
+	"exports": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
 	"engines": {
 		"node": ">=22"
 	},
@@ -50,17 +48,21 @@
 		"oxlint": "1.38.0",
 		"oxlint-tsgolint": "0.10.1",
 		"prettier": "3.7.4",
+		"publint": "0.3.16",
 		"react": "19.2.3",
 		"react-dom": "19.2.3",
+		"tsdown": "0.18.4",
 		"typescript": "5.9.3",
 		"vitest": "4.0.16"
 	},
 	"scripts": {
+		"build": "tsdown",
+		"fix": "pnpm run format && pnpm run lint",
 		"format": "prettier --write --ignore-unknown .",
 		"format:ci": "prettier --check --ignore-unknown .",
 		"lint": "oxlint --fix --type-aware --type-check --deny-warnings --report-unused-disable-directives",
 		"lint:ci": "oxlint --type-aware --type-check --deny-warnings --report-unused-disable-directives",
-		"prepack": "pnpm run '/^(format:ci|lint:ci|test|typecheck)$/'",
+		"prepack": "pnpm run '/^(format:ci|lint:ci|test|typecheck)$/' && pnpm run build",
 		"test": "vitest run",
 		"typecheck": "tsc --noEmit"
 	}
