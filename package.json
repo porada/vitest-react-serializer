@@ -1,0 +1,66 @@
+{
+	"name": "vitest-react-serializer",
+	"version": "0.0.0",
+	"description": "Serialize React components into formatted HTML",
+	"license": "MIT",
+	"author": {
+		"name": "Dom Porada",
+		"email": "dom@dom.engineering",
+		"url": "https://dom.engineering"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/porada/vitest-react-serializer.git"
+	},
+	"keywords": [
+		"component-testing",
+		"html",
+		"react",
+		"serializer",
+		"snapshot",
+		"vitest"
+	],
+	"files": [
+		"src/**/*.ts",
+		"!**/*.snap",
+		"!**/*.test.ts",
+		"!**/*.test.tsx"
+	],
+	"type": "module",
+	"sideEffects": false,
+	"exports": "./src/index.ts",
+	"engines": {
+		"node": ">=22"
+	},
+	"dependencies": {
+		"@prettier/sync": "^0.6.1"
+	},
+	"peerDependencies": {
+		"react": ">=19",
+		"react-dom": ">=19",
+		"vitest": ">=4"
+	},
+	"devDependencies": {
+		"@standard-config/prettier": "1.0.2",
+		"@standard-config/tsconfig": "2.0.0",
+		"@types/react": "19.2.7",
+		"@types/react-dom": "19.2.3",
+		"@vitest/coverage-v8": "4.0.16",
+		"oxlint": "1.38.0",
+		"oxlint-tsgolint": "0.10.1",
+		"prettier": "3.7.4",
+		"react": "19.2.3",
+		"react-dom": "19.2.3",
+		"typescript": "5.9.3",
+		"vitest": "4.0.16"
+	},
+	"scripts": {
+		"format": "prettier --write --ignore-unknown .",
+		"format:ci": "prettier --check --ignore-unknown .",
+		"lint": "oxlint --fix --type-aware --type-check --deny-warnings --report-unused-disable-directives",
+		"lint:ci": "oxlint --type-aware --type-check --deny-warnings --report-unused-disable-directives",
+		"prepack": "pnpm run '/^(format:ci|lint:ci|test|typecheck)$/'",
+		"test": "vitest run",
+		"typecheck": "tsc --noEmit"
+	}
+}

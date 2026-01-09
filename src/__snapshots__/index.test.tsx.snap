@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`is compaible with Vitest API 1`] = `<button type="button">Click me</button>`;
+
+exports[`is compaible with Vitest API 2`] = `
+<section>
+  <h1>Hedy Lamarr</h1>
+  <ul>
+    <li><strong>Profession:</strong> Actress and inventor</li>
+    <li><strong>Awards:</strong> National Inventors Hall of Fame</li>
+    <li><strong>Born:</strong> November 9, 1914</li>
+  </ul>
+  <p>
+    Hedy Lamarr was an Austrian-born American actress and inventor who pioneered
+    early techniques for spread spectrum communications.
+  </p>
+</section>
+`;
