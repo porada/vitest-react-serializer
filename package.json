@@ -18,6 +18,7 @@
 		"react",
 		"serializer",
 		"snapshot",
+		"snapshot-testing",
 		"vitest"
 	],
 	"files": [
