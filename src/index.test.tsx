@@ -81,7 +81,7 @@ test('serializes React components to formatted HTML', () => {
 	expect(serialize()).toBe('');
 });
 
-test('is compaible with Vitest API', () => {
+test('ensures stable snapshot formatting', () => {
 	expect.addSnapshotSerializer(serializer);
 
 	const Button = () => {
@@ -95,6 +95,55 @@ test('is compaible with Vitest API', () => {
 			</button>
 		);
 	};
+
+	const Form = () => (
+		<form
+			action="/login"
+			method="post"
+			name="login"
+			autoComplete="on"
+			noValidate
+		>
+			<div className="form-field">
+				<label htmlFor="username">
+					Email Address
+					<input
+						id="username"
+						type="email"
+						name="username"
+						autoComplete="username"
+						required
+						autoFocus
+					/>
+				</label>
+			</div>
+			<div className="form-field">
+				<label htmlFor="password">
+					Password
+					<input
+						id="password"
+						type="password"
+						name="password"
+						autoComplete="current-password"
+						minLength={8}
+						required
+					/>
+				</label>
+			</div>
+			<button type="submit" disabled={false}>
+				Sign in
+			</button>
+			<footer>
+				<p className="login-help">
+					Forgot password?{' '}
+					<a className="login-help-link" href="/login/password-reset">
+						Reset it here
+					</a>
+					.
+				</p>
+			</footer>
+		</form>
+	);
 
 	const Profile = () => (
 		<section>
@@ -119,5 +168,6 @@ test('is compaible with Vitest API', () => {
 	);
 
 	expect(<Button />).toMatchSnapshot();
+	expect(<Form />).toMatchSnapshot();
 	expect(<Profile />).toMatchSnapshot();
 });

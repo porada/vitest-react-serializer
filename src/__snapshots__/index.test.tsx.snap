@@ -1,8 +1,52 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`is compaible with Vitest API 1`] = `<button type="button">Click me</button>`;
+exports[`ensures stable snapshot formatting 1`] = `<button type="button">Click me</button>`;
 
-exports[`is compaible with Vitest API 2`] = `
+exports[`ensures stable snapshot formatting 2`] = `
+<form
+  name="login"
+  autocomplete="on"
+  novalidate=""
+  action="/login"
+  method="post"
+>
+  <div class="form-field">
+    <label for="username"
+      >Email Address<input
+        id="username"
+        type="email"
+        autocomplete="username"
+        required=""
+        autofocus=""
+        name="username"
+    /></label>
+  </div>
+  <div class="form-field">
+    <label for="password"
+      >Password<input
+        id="password"
+        type="password"
+        autocomplete="current-password"
+        minlength="8"
+        required=""
+        name="password"
+    /></label>
+  </div>
+  <button type="submit">Sign in</button>
+  <footer>
+    <p class="login-help">
+      Forgot password?
+      <a
+        class="login-help-link"
+        href="/login/password-reset"
+        >Reset it here</a
+      >.
+    </p>
+  </footer>
+</form>
+`;
+
+exports[`ensures stable snapshot formatting 3`] = `
 <section>
   <h1>Hedy Lamarr</h1>
   <ul>

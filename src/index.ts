@@ -17,7 +17,6 @@ export default {
 			endOfLine: 'lf',
 			htmlWhitespaceSensitivity: 'css',
 			printWidth: 80,
-			proseWrap: 'never',
 			singleAttributePerLine: true,
 			singleQuote: false,
 			tabWidth: 2,

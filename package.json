@@ -32,7 +32,8 @@
 	},
 	"packageManager": "pnpm@10.27.0",
 	"dependencies": {
-		"@prettier/sync": "^0.6.1"
+		"@prettier/sync": "^0.6.1",
+		"prettier": "~3.7.4"
 	},
 	"peerDependencies": {
 		"react": ">=19",
@@ -47,7 +48,6 @@
 		"@vitest/coverage-v8": "4.0.16",
 		"oxlint": "1.38.0",
 		"oxlint-tsgolint": "0.10.1",
-		"prettier": "3.7.4",
 		"publint": "0.3.16",
 		"react": "19.2.3",
 		"react-dom": "19.2.3",
