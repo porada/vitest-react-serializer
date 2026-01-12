@@ -31,7 +31,7 @@ exports[`renders without issues 1`] = `
 `;
 ```
 
-`vitest-react-serializer` instead snapshots the rendered HTML output, making changes to component output easier to spot and review.
+Instead, `vitest-react-serializer` snapshots the rendered HTML, making component output changes easier to catch and review.
 
 ```ts
 exports[`renders without issues 1`] = `
