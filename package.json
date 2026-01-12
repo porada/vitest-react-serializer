@@ -15,6 +15,7 @@
 	"keywords": [
 		"component-testing",
 		"html",
+		"jsx",
 		"react",
 		"serializer",
 		"snapshot",
@@ -31,7 +32,7 @@
 	"engines": {
 		"node": ">=22"
 	},
-	"packageManager": "pnpm@10.27.0",
+	"packageManager": "pnpm@10.28.0",
 	"dependencies": {
 		"@prettier/sync": "^0.6.1",
 		"prettier": "~3.7.4"
@@ -42,7 +43,7 @@
 		"vitest": ">=4"
 	},
 	"devDependencies": {
-		"@standard-config/prettier": "1.0.2",
+		"@standard-config/prettier": "1.2.0",
 		"@standard-config/tsconfig": "2.0.0",
 		"@types/react": "19.2.7",
 		"@types/react-dom": "19.2.3",
@@ -58,12 +59,12 @@
 	},
 	"scripts": {
 		"build": "tsdown",
-		"fix": "pnpm run format && pnpm run lint",
+		"fix": "pnpm format && pnpm lint",
 		"format": "prettier --write --ignore-unknown .",
-		"format:ci": "prettier --check --ignore-unknown .",
+		"format:check": "prettier --check --ignore-unknown .",
 		"lint": "oxlint --fix --type-aware --type-check --deny-warnings --report-unused-disable-directives",
-		"lint:ci": "oxlint --type-aware --type-check --deny-warnings --report-unused-disable-directives",
-		"prepack": "pnpm run '/^(format:ci|lint:ci|test|typecheck)$/' && pnpm run build",
+		"lint:check": "oxlint --type-aware --type-check --deny-warnings --report-unused-disable-directives",
+		"prepack": "pnpm run '/^(format:check|lint:check|test|typecheck)$/' && pnpm build",
 		"test": "vitest run",
 		"typecheck": "tsc --noEmit"
 	}

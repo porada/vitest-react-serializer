@@ -13,9 +13,9 @@ import { expect, test } from 'vitest';
 import { FolderIcon } from './icons/index.ts';
 
 test('renders without issues', () => {
-	expect(
-		<FolderIcon weight="fill" size={48} className="foo" />
-	).toMatchSnapshot();
+    expect(
+        <FolderIcon weight="fill" size={48} className="foo" />
+    ).toMatchSnapshot();
 });
 ```
 
@@ -64,9 +64,9 @@ Reference `vitest-react-serializer` in your `vitest.config.ts`:
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-	test: {
-		snapshotSerializers: ['vitest-react-serializer'],
-	},
+    test: {
+        snapshotSerializers: ['vitest-react-serializer'],
+    },
 });
 ```
 
@@ -77,6 +77,6 @@ import { beforeAll, expect } from 'vitest';
 import reactSerializer from 'vitest-react-serializer';
 
 beforeAll(() => {
-	expect.addSnapshotSerializer(reactSerializer);
+    expect.addSnapshotSerializer(reactSerializer);
 });
 ```
