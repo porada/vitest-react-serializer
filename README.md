@@ -84,3 +84,7 @@ beforeAll(() => {
     expect.addSnapshotSerializer(reactSerializer);
 });
 ```
+
+## License
+
+MIT © [Dom Porada](https://dom.engineering)
