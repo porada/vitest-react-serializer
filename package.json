@@ -45,7 +45,7 @@
 	"devDependencies": {
 		"@standard-config/eslint": "1.2.0",
 		"@standard-config/prettier": "1.6.0",
-		"@standard-config/tsconfig": "2.0.0",
+		"@standard-config/tsconfig": "2.0.1",
 		"@types/react": "19.2.9",
 		"@types/react-dom": "19.2.3",
 		"@vitest/coverage-v8": "4.0.18",
