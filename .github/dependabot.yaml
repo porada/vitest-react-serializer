@@ -10,4 +10,14 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
+    versioning-strategy: 'increase'
+    ignore:
+      - dependency-name: 'prettier'
+
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: 'daily'
     versioning-strategy: 'increase-if-necessary'
+    allow:
+      - dependency-name: 'prettier'
