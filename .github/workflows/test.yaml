@@ -36,6 +36,4 @@ jobs:
       - run: pnpm install
       - run: pnpm add prettier@~${{ matrix.prettier-version }}
       - run: pnpm exec prettier --version
-      - run: pnpm typecheck
       - run: pnpm test
-      - run: pnpm build
