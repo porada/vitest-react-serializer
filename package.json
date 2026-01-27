@@ -1,6 +1,6 @@
 {
 	"name": "vitest-react-serializer",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "Serialize React components into formatted HTML",
 	"license": "MIT",
 	"author": {

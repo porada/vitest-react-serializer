@@ -85,9 +85,9 @@ beforeAll(() => {
 });
 ```
 
-## Recommended
+## Related
 
-See [**Awesome Vitest**](https://github.com/vitest-dev/awesome-vitest) for more Vitest tooling and resources.
+- [**Awesome Vitest**](https://github.com/vitest-dev/awesome-vitest)
 
 ## License
 
