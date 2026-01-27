@@ -2,14 +2,14 @@ version: 2
 
 updates:
   - package-ecosystem: github-actions
-    directory: '/'
+    directory: /
     schedule:
-      interval: 'weekly'
+      interval: weekly
 
   - package-ecosystem: npm
-    directory: '/'
+    directory: /
     schedule:
-      interval: 'daily'
-    versioning-strategy: 'increase'
+      interval: daily
+    versioning-strategy: increase
     ignore:
-      - dependency-name: 'prettier'
+      - dependency-name: prettier
