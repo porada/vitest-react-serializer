@@ -87,7 +87,7 @@ beforeAll(() => {
 
 ## Related
 
-- [**Awesome Vitest**](https://github.com/vitest-dev/awesome-vitest)
+- [**Awesome Vitest**](https://github.com/porada/awesome-vitest)
 
 ## License
 
