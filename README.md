@@ -1,6 +1,4 @@
-[![](https://img.shields.io/npm/v/vitest-react-serializer)](https://www.npmjs.com/package/vitest-react-serializer)
-[![](https://img.shields.io/github/actions/workflow/status/porada/vitest-react-serializer/test.yaml)](https://github.com/porada/vitest-react-serializer/actions/workflows/test.yaml)
-[![](https://img.shields.io/codecov/c/github/porada/vitest-react-serializer)](https://codecov.io/github/porada/vitest-react-serializer)
+[![](https://img.shields.io/npm/v/vitest-react-serializer)](https://www.npmjs.com/package/vitest-react-serializer) [![](https://img.shields.io/github/actions/workflow/status/porada/vitest-react-serializer/test.yaml)](https://github.com/porada/vitest-react-serializer/actions/workflows/test.yaml) [![](https://img.shields.io/codecov/c/github/porada/vitest-react-serializer)](https://codecov.io/github/porada/vitest-react-serializer)
 
 # vitest-react-serializer
 

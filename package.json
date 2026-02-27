@@ -45,7 +45,7 @@
 	"devDependencies": {
 		"@standard-config/eslint": "^1.6.1",
 		"@standard-config/oxlint": "^1.2.2",
-		"@standard-config/prettier": "^1.9.1",
+		"@standard-config/prettier": "^1.10.0",
 		"@standard-config/tsconfig": "^2.0.2",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
@@ -66,7 +66,7 @@
 		"fix": "pnpm format && pnpm lint",
 		"format": "prettier --write --ignore-unknown .",
 		"format:check": "prettier --check --ignore-unknown .",
-		"lint": "oxlint --fix --report-unused-disable-directives --type-aware --type-check",
+		"lint": "oxlint --fix --report-unused-disable-directives --type-aware",
 		"lint:check": "oxlint --deny-warnings --report-unused-disable-directives --type-aware --type-check",
 		"prepack": "pnpm run '/^(format:check|lint:check|test|typecheck)$/' && pnpm build",
 		"prepare": "husky",
