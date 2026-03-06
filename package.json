@@ -44,7 +44,7 @@
 	},
 	"devDependencies": {
 		"@standard-config/eslint": "^1.6.1",
-		"@standard-config/oxlint": "^1.2.2",
+		"@standard-config/oxlint": "^1.4.0",
 		"@standard-config/prettier": "^1.10.0",
 		"@standard-config/tsconfig": "^2.0.2",
 		"@types/react": "^19.2.14",
@@ -57,7 +57,7 @@
 		"publint": "^0.3.18",
 		"react": "^19.2.4",
 		"react-dom": "^19.2.4",
-		"tsdown": "^0.20.3",
+		"tsdown": "^0.21.0",
 		"typescript": "^5.9.3",
 		"vitest": "^4.0.18"
 	},
