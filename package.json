@@ -53,7 +53,7 @@
 		"eslint": "^10.0.3",
 		"husky": "^9.1.7",
 		"oxlint": "^1.56.0",
-		"oxlint-tsgolint": "^0.17.0",
+		"oxlint-tsgolint": "^0.17.1",
 		"publint": "^0.3.18",
 		"react": "^19.2.4",
 		"react-dom": "^19.2.4",
