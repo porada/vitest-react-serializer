@@ -1,11 +1,16 @@
 autoInstallPeers: false
 
-onlyBuiltDependencies:
-  - esbuild
+blockExoticSubdeps: true
+
+overrides:
+  vite-plus>oxfmt: '-'
 
 peerDependencyRules:
-  allowedVersions:
-    eslint: '*'
-    vitest: '*'
+  allowAny:
+    - vitest
+
+strictDepBuilds: true
 
 strictPeerDependencies: true
+
+trustPolicy: no-downgrade
