@@ -1,15 +1,16 @@
 autoInstallPeers: false
 
-blockExoticSubdeps: true
+minimumReleaseAgeExclude:
+  - '@standard-config/*'
+  - vitest
 
 overrides:
   vite-plus>oxfmt: '-'
 
 peerDependencyRules:
   allowAny:
+    - '@vitest/coverage-v8'
     - vitest
-
-strictDepBuilds: true
 
 strictPeerDependencies: true
 
