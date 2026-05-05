@@ -1,8 +1,8 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ensures stable snapshot formatting 1`] = `<button type="button">Click me</button>`;
+exports[`is compatible with Vitest API 1`] = `<button type="button">Click me</button>`;
 
-exports[`ensures stable snapshot formatting 2`] = `
+exports[`is compatible with Vitest API 2`] = `
 <form
   name="login"
   autocomplete="on"
@@ -46,7 +46,7 @@ exports[`ensures stable snapshot formatting 2`] = `
 </form>
 `;
 
-exports[`ensures stable snapshot formatting 3`] = `
+exports[`is compatible with Vitest API 3`] = `
 <section>
   <h1>Hedy Lamarr</h1>
   <ul>

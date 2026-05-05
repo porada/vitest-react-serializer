@@ -81,7 +81,7 @@ test('serializes React components to formatted HTML', () => {
 	expect(serialize()).toBe('');
 });
 
-test('ensures stable snapshot formatting', () => {
+test('is compatible with Vitest API', () => {
 	expect.addSnapshotSerializer(serializer);
 
 	const Button = () => {
