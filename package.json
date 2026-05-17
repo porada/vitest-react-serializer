@@ -51,7 +51,7 @@
 		"@types/react-dom": "^19.2.3",
 		"@vitest/coverage-v8": "^4.1.6",
 		"eslint": "^10.3.0",
-		"publint": "^0.3.20",
+		"publint": "^0.3.21",
 		"react": "^19.2.6",
 		"react-dom": "^19.2.6",
 		"typescript": "^6.0.3",
