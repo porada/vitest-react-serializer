@@ -167,7 +167,10 @@ test('is compatible with Vitest API', () => {
 		</section>
 	);
 
+	/* oxlint-disable-next-line vitest/prefer-snapshot-hint */
 	expect(<Button />).toMatchSnapshot();
+	/* oxlint-disable-next-line vitest/prefer-snapshot-hint */
 	expect(<Form />).toMatchSnapshot();
+	/* oxlint-disable-next-line vitest/prefer-snapshot-hint */
 	expect(<Profile />).toMatchSnapshot();
 });
