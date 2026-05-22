@@ -55,7 +55,7 @@
 		"react": "^19.2.6",
 		"react-dom": "^19.2.6",
 		"typescript": "^6.0.3",
-		"vite-plus": "^0.1.21",
+		"vite-plus": "^0.1.22",
 		"vitest": "^4.1.7"
 	},
 	"scripts": {
