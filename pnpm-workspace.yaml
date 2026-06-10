@@ -1,11 +1,19 @@
 autoInstallPeers: false
 
+catalog:
+  oxlint: ^1.69.0
+
+color: always
+
+gitChecks: false
+
 minimumReleaseAgeExclude:
   - '@vitest/*'
   - vitest
 
 overrides:
   vite-plus>oxfmt: '-'
+  vite-plus>oxlint: 'catalog:'
 
 peerDependencyRules:
   allowAny:

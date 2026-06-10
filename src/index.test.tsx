@@ -107,7 +107,6 @@ test('is compatible with Vitest API', () => {
 			<div className="form-field">
 				<label htmlFor="username">
 					Email Address
-					{/* oxlint-disable-next-line jsx-a11y/control-has-associated-label */}
 					<input
 						id="username"
 						type="email"
@@ -121,7 +120,6 @@ test('is compatible with Vitest API', () => {
 			<div className="form-field">
 				<label htmlFor="password">
 					Password
-					{/* oxlint-disable-next-line jsx-a11y/control-has-associated-label */}
 					<input
 						id="password"
 						type="password"
@@ -169,10 +167,7 @@ test('is compatible with Vitest API', () => {
 		</section>
 	);
 
-	/* oxlint-disable-next-line vitest/prefer-snapshot-hint */
 	expect(<Button />).toMatchSnapshot();
-	/* oxlint-disable-next-line vitest/prefer-snapshot-hint */
 	expect(<Form />).toMatchSnapshot();
-	/* oxlint-disable-next-line vitest/prefer-snapshot-hint */
 	expect(<Profile />).toMatchSnapshot();
 });
