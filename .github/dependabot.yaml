@@ -16,5 +16,7 @@ updates:
     cooldown:
       default-days: 1
       exclude:
+        - '@prettier/*'
         - '@vitest/*'
+        - prettier
         - vitest

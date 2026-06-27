@@ -1,19 +1,21 @@
 autoInstallPeers: false
 
 catalog:
-  oxlint: ^1.70.0
+  vitest: ^4.1.9
 
 color: always
 
 gitChecks: false
 
 minimumReleaseAgeExclude:
+  - '@prettier/*'
   - '@vitest/*'
+  - prettier
   - vitest
 
 overrides:
   vite-plus>oxfmt: '-'
-  vite-plus>oxlint: 'catalog:'
+  vite-plus>vitest: 'catalog:'
 
 peerDependencyRules:
   allowAny:
