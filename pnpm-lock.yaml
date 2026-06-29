@@ -20,10 +20,10 @@ importers:
     dependencies:
       '@prettier/sync':
         specifier: ^0.6.1
-        version: 0.6.1(prettier@3.9.1)
+        version: 0.6.1(prettier@3.9.2)
       prettier:
-        specifier: ~3.9.1
-        version: 3.9.1
+        specifier: ~3.9.2
+        version: 3.9.2
     devDependencies:
       '@standard-config/oxlint':
         specifier: ^2.2.2
@@ -36,7 +36,7 @@ importers:
         version: 2.2.2(@standard-config/oxlint@2.2.2)(eslint@10.6.0)(oxlint@1.70.0(oxlint-tsgolint@0.23.0)(vite-plus@0.2.1(@vitest/coverage-v8@4.1.9)(publint@0.3.21)(typescript@6.0.3)(vite@8.1.0(yaml@2.9.0))(yaml@2.9.0)))(typescript@6.0.3)
       '@standard-config/prettier':
         specifier: ^1.14.0
-        version: 1.14.0(prettier@3.9.1)
+        version: 1.14.0(prettier@3.9.2)
       '@standard-config/tsconfig':
         specifier: ^3.2.0
         version: 3.2.0(typescript@6.0.3)
@@ -1477,8 +1477,8 @@ packages:
     peerDependencies:
       prettier: '>=3'
 
-  prettier@3.9.1:
-    resolution: {integrity: sha512-ppiDo2CSwexck1eyZUwJHg/N3nf1+6IRCv7W/VJ5vaLnVCmB7+3CdRfMwoCHBBX6xTrREDTksZ4OZl5SSf4zXA==}
+  prettier@3.9.2:
+    resolution: {integrity: sha512-8LHNw4SKae4PyiAful3l/eTTDW818iaDsY03G3XAguuSbo7IUUrmDhQjTdTy453P5dt6MQMnX6fVMXPasfV77w==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -2082,10 +2082,10 @@ snapshots:
     dependencies:
       oxc-parser: 0.137.0
 
-  '@prettier/sync@0.6.1(prettier@3.9.1)':
+  '@prettier/sync@0.6.1(prettier@3.9.2)':
     dependencies:
       make-synchronized: 0.8.0
-      prettier: 3.9.1
+      prettier: 3.9.2
 
   '@publint/pack@0.1.5':
     dependencies:
@@ -2176,16 +2176,16 @@ snapshots:
       '@standard-config/oxlint-react': 2.2.2(@standard-config/oxlint@2.2.2)(eslint@10.6.0)(oxlint@1.70.0(oxlint-tsgolint@0.23.0)(vite-plus@0.2.1(@vitest/coverage-v8@4.1.9)(publint@0.3.21)(typescript@6.0.3)(vite@8.1.0(yaml@2.9.0))(yaml@2.9.0)))(typescript@6.0.3)
       '@standard-config/oxlint-stylistic': 2.2.2(@standard-config/oxlint@2.2.2)(eslint@10.6.0)(oxlint@1.70.0(oxlint-tsgolint@0.23.0)(vite-plus@0.2.1(@vitest/coverage-v8@4.1.9)(publint@0.3.21)(typescript@6.0.3)(vite@8.1.0(yaml@2.9.0))(yaml@2.9.0)))(typescript@6.0.3)
 
-  '@standard-config/prettier@1.14.0(prettier@3.9.1)':
+  '@standard-config/prettier@1.14.0(prettier@3.9.2)':
     dependencies:
       '@prettier/plugin-oxc': 0.2.0
-      prettier: 3.9.1
-      prettier-plugin-expand-json: 1.0.5(prettier@3.9.1)
-      prettier-plugin-markdown-html: 1.4.1(prettier@3.9.1)
-      prettier-plugin-pkg: 0.22.1(prettier@3.9.1)
-      prettier-plugin-sh: 0.18.1(prettier@3.9.1)
-      prettier-plugin-sort-json: 4.2.0(prettier@3.9.1)
-      prettier-plugin-yaml: 1.2.0(prettier@3.9.1)
+      prettier: 3.9.2
+      prettier-plugin-expand-json: 1.0.5(prettier@3.9.2)
+      prettier-plugin-markdown-html: 1.4.1(prettier@3.9.2)
+      prettier-plugin-pkg: 0.22.1(prettier@3.9.2)
+      prettier-plugin-sh: 0.18.1(prettier@3.9.2)
+      prettier-plugin-sort-json: 4.2.0(prettier@3.9.2)
+      prettier-plugin-yaml: 1.2.0(prettier@3.9.2)
 
   '@standard-config/tsconfig@3.2.0(typescript@6.0.3)':
     optionalDependencies:
@@ -2953,34 +2953,34 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-expand-json@1.0.5(prettier@3.9.1):
+  prettier-plugin-expand-json@1.0.5(prettier@3.9.2):
     dependencies:
-      prettier: 3.9.1
+      prettier: 3.9.2
 
-  prettier-plugin-markdown-html@1.4.1(prettier@3.9.1):
+  prettier-plugin-markdown-html@1.4.1(prettier@3.9.2):
     dependencies:
-      prettier: 3.9.1
+      prettier: 3.9.2
 
-  prettier-plugin-pkg@0.22.1(prettier@3.9.1):
+  prettier-plugin-pkg@0.22.1(prettier@3.9.2):
     dependencies:
-      prettier: 3.9.1
+      prettier: 3.9.2
 
-  prettier-plugin-sh@0.18.1(prettier@3.9.1):
+  prettier-plugin-sh@0.18.1(prettier@3.9.2):
     dependencies:
       '@reteps/dockerfmt': 0.5.2
-      prettier: 3.9.1
+      prettier: 3.9.2
       sh-syntax: 0.5.8
 
-  prettier-plugin-sort-json@4.2.0(prettier@3.9.1):
+  prettier-plugin-sort-json@4.2.0(prettier@3.9.2):
     dependencies:
-      prettier: 3.9.1
+      prettier: 3.9.2
 
-  prettier-plugin-yaml@1.2.0(prettier@3.9.1):
+  prettier-plugin-yaml@1.2.0(prettier@3.9.2):
     dependencies:
-      prettier: 3.9.1
+      prettier: 3.9.2
       yaml: 2.9.0
 
-  prettier@3.9.1: {}
+  prettier@3.9.2: {}
 
   pretty-format@27.5.1:
     dependencies:
