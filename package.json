@@ -35,7 +35,7 @@
 	"packageManager": "pnpm@11.9.0",
 	"dependencies": {
 		"@prettier/sync": "^0.6.1",
-		"prettier": "~3.9.3"
+		"prettier": "~3.9.4"
 	},
 	"peerDependencies": {
 		"react": ">=19",
