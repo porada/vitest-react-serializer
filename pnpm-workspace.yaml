@@ -1,8 +1,5 @@
 autoInstallPeers: false
 
-catalog:
-  vitest: ^4.1.9
-
 color: always
 
 gitChecks: false
@@ -14,8 +11,17 @@ minimumReleaseAgeExclude:
   - vitest
 
 overrides:
+  vite-plus>@vitest/browser: '-'
+  vite-plus>@vitest/browser-preview: '-'
+  vite-plus>@vitest/expect: '-'
+  vite-plus>@vitest/mocker: '-'
+  vite-plus>@vitest/pretty-format: '-'
+  vite-plus>@vitest/runner: '-'
+  vite-plus>@vitest/snapshot: '-'
+  vite-plus>@vitest/spy: '-'
+  vite-plus>@vitest/utils: '-'
   vite-plus>oxfmt: '-'
-  vite-plus>vitest: 'catalog:'
+  vite-plus>vitest: '-'
 
 peerDependencyRules:
   allowAny:

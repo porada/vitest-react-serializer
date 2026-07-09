@@ -41,7 +41,6 @@ jobs:
         with:
           cache: true
       - run: pnpm install
-      - run: pnpm add --save-dev vite vitest@beta
+      - run: pnpm add --save-dev vite vitest@5.0.0-beta.6
         if: ${{ matrix.vitest-version == '5' }}
-      - run: pnpm exec vitest --version
       - run: pnpm test
