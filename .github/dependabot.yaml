@@ -17,6 +17,7 @@ updates:
       default-days: 1
       exclude:
         - '@prettier/*'
+        - '@standard-config/*'
         - '@vitest/*'
         - prettier
         - vitest

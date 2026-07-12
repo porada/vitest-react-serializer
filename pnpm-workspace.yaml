@@ -6,6 +6,7 @@ gitChecks: false
 
 minimumReleaseAgeExclude:
   - '@prettier/*'
+  - '@standard-config/*'
   - '@vitest/*'
   - prettier
   - vitest
