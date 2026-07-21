@@ -30,7 +30,7 @@ jobs:
           - node-version: 20
             vitest-version: 5
     steps:
-      - uses: actions/checkout@v7.0.0
+      - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
       - uses: actions/setup-node@v7.0.0
