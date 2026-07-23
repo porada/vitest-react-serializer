@@ -38,8 +38,8 @@ importers:
         specifier: ^2.5.0
         version: 2.5.0(@standard-config/oxlint@2.4.3)(eslint@10.7.0)(oxlint@1.73.0(oxlint-tsgolint@0.24.0)(vite-plus@0.2.5(publint@0.3.21)(typescript@6.0.3)(yaml@2.9.0)))(typescript@6.0.3)
       '@standard-config/prettier':
-        specifier: ^1.16.0
-        version: 1.16.0(prettier@3.9.6)
+        specifier: ^1.17.0
+        version: 1.17.0(prettier@3.9.6)
       '@standard-config/tsconfig':
         specifier: ^3.2.0
         version: 3.2.0(typescript@6.0.3)
@@ -517,8 +517,8 @@ packages:
     resolution: {integrity: sha512-OhgMQeMmZA0dcFcX4/priaJZWdFECxiClgq6mRX6aatZEcV9PbKC3P3/v8U1hVjviT1i5U+vR8lAtBV6m4FXAA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@prettier/plugin-oxc@0.2.1':
-    resolution: {integrity: sha512-Dog+deCMG5ozJTLmNNSC8GJhTg9DY69KEu3iJZtcMoyEWcrxFUhlc7aW/70gGv/IviT/QyhlH8AmTUOyEhnkDQ==}
+  '@prettier/plugin-oxc@0.2.2':
+    resolution: {integrity: sha512-yscDcAuDtvOfE0c8i8UVP+hjK43VIPpwfMv+73mdkpy12rZWnk5Kl6N6pUneQmaZ3PKTg611zemBHFpMjp9ZnQ==}
     engines: {node: '>=14'}
 
   '@prettier/sync@0.6.1':
@@ -686,8 +686,8 @@ packages:
       '@standard-config/oxlint-stylistic':
         optional: true
 
-  '@standard-config/prettier@1.16.0':
-    resolution: {integrity: sha512-gaiQX/tx7ZgPnQ3epSeM5uFi+YZ7N3cacinJfr9g8zBS29Dq6eTen9Q9UGVjpMnw0dWm8wh+ci3GSy7A3A2QAg==}
+  '@standard-config/prettier@1.17.0':
+    resolution: {integrity: sha512-XTbk9CogLZ0awecO6a50U6dBNwICyRZueGe7tGS/7BQEjbcD03CzSSHtO03hP0eXOSrpbDNUugyuf5+x9DqEOg==}
     engines: {node: '>=20'}
     peerDependencies:
       prettier: ^3.9.0
@@ -2160,7 +2160,7 @@ snapshots:
 
   '@oxlint/plugins@1.73.0': {}
 
-  '@prettier/plugin-oxc@0.2.1':
+  '@prettier/plugin-oxc@0.2.2':
     dependencies:
       oxc-parser: 0.139.0
 
@@ -2274,9 +2274,9 @@ snapshots:
       '@standard-config/oxlint-react': 2.4.3(@standard-config/oxlint@2.4.3)(eslint@10.7.0)(oxlint@1.73.0(oxlint-tsgolint@0.24.0)(vite-plus@0.2.5(publint@0.3.21)(typescript@6.0.3)(yaml@2.9.0)))(typescript@6.0.3)
       '@standard-config/oxlint-stylistic': 2.5.0(@standard-config/oxlint@2.4.3)(eslint@10.7.0)(oxlint@1.73.0(oxlint-tsgolint@0.24.0)(vite-plus@0.2.5(publint@0.3.21)(typescript@6.0.3)(yaml@2.9.0)))(typescript@6.0.3)
 
-  '@standard-config/prettier@1.16.0(prettier@3.9.6)':
+  '@standard-config/prettier@1.17.0(prettier@3.9.6)':
     dependencies:
-      '@prettier/plugin-oxc': 0.2.1
+      '@prettier/plugin-oxc': 0.2.2
       prettier: 3.9.6
       prettier-plugin-expand-json: 1.0.5(prettier@3.9.6)
       prettier-plugin-markdown-html: 1.4.1(prettier@3.9.6)
