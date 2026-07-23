@@ -32,7 +32,7 @@
 	"engines": {
 		"node": ">=20"
 	},
-	"packageManager": "pnpm@11.14.0",
+	"packageManager": "pnpm@11.16.0",
 	"dependencies": {
 		"@prettier/sync": "^0.6.1",
 		"prettier": "~3.9.6"
@@ -43,8 +43,8 @@
 		"vitest": ">=4"
 	},
 	"devDependencies": {
-		"@standard-config/oxlint": "^2.4.3",
-		"@standard-config/oxlint-react": "^2.4.3",
+		"@standard-config/oxlint": "^2.5.0",
+		"@standard-config/oxlint-react": "^2.5.0",
 		"@standard-config/oxlint-stylistic": "^2.5.0",
 		"@standard-config/prettier": "^1.17.0",
 		"@standard-config/tsconfig": "^3.2.0",
@@ -53,8 +53,8 @@
 		"@vitest/coverage-v8": "^4.1.10",
 		"eslint": "^10.7.0",
 		"publint": "^0.3.21",
-		"react": "^19.2.7",
-		"react-dom": "^19.2.7",
+		"react": "^19.2.8",
+		"react-dom": "^19.2.8",
 		"typescript": "^6.0.3",
 		"vite-plus": "^0.2.5",
 		"vitest": "^4.1.10"

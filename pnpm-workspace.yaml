@@ -22,6 +22,8 @@ overrides:
   vite-plus>@vitest/spy: '-'
   vite-plus>@vitest/utils: '-'
   vite-plus>oxfmt: '-'
+  vite-plus>oxlint: latest
+  vite-plus>oxlint-tsgolint: latest
   vite-plus>vitest: '-'
 
 peerDependencyRules:
