@@ -3,10 +3,29 @@ import type { SnapshotSerializer } from 'vitest';
 import prettier from '@prettier/sync';
 import { isValidElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
+import {
+	assertSynchronousReactTree,
+	isReactSuspensionError,
+	isReactThenable,
+	UNSUPPORTED_RENDERING_MESSAGE,
+} from './react-compatibility/index.ts';
 
 export default {
-	serialize(value) {
-		const minified = renderToStaticMarkup(value as ReactNode);
+	serialize(value, _config?: unknown, indentation = '') {
+		let minified: string;
+
+		try {
+			assertSynchronousReactTree(value as ReactNode);
+			minified = renderToStaticMarkup(value as ReactNode);
+		} catch (error) {
+			if (isReactSuspensionError(error) || isReactThenable(error)) {
+				throw new TypeError(UNSUPPORTED_RENDERING_MESSAGE, {
+					cause: error,
+				});
+			}
+
+			throw error;
+		}
 
 		const formatted = prettier.format(minified, {
 			parser: 'html',
@@ -23,7 +42,7 @@ export default {
 			useTabs: false,
 		});
 
-		return formatted.trim();
+		return formatted.trim().replaceAll('\n', `\n${indentation}`);
 	},
 	test(value) {
 		return isValidElement(value as unknown);

@@ -1,5 +1,5 @@
 import type { SnapshotSerializer } from 'vitest';
-import { createElement, Fragment } from 'react';
+import { Suspense, use } from 'react';
 import { expect, expectTypeOf, test } from 'vitest';
 import serializer from './index.ts';
 
@@ -12,78 +12,62 @@ test('exposes correct public API', () => {
 	});
 });
 
-test('identifies React elements correctly', () => {
-	const { test } = serializer;
-
-	expect(test('')).toBe(false);
-	expect(test('foo')).toBe(false);
-	expect(test(() => {})).toBe(false);
-	expect(test([])).toBe(false);
-	expect(test({})).toBe(false);
-	expect(test(1)).toBe(false);
-	expect(test(true)).toBe(false);
-	expect(test('<div />')).toBe(false);
-	expect(test('<div></div>')).toBe(false);
-
-	expect(test(<div />)).toBe(true);
-	expect(test(createElement('div'))).toBe(true);
-
-	expect(test(<></>)).toBe(true);
-	expect(test(<Fragment />)).toBe(true);
-	expect(test(createElement(Fragment))).toBe(true);
-
-	const Button = () => {
-		const handleClick = () => {
-			alert('You clicked me!');
-		};
-
-		return (
-			<button type="button" onClick={handleClick}>
-				Click me
-			</button>
-		);
-	};
-
-	expect(test(<Button />)).toBe(true);
-	expect(test(Button)).toBe(false);
-
-	/* @ts-expect-error */
-	expect(test()).toBe(false);
+test('identifies React elements', () => {
+	expect(serializer.test(<div />)).toBe(true);
+	expect(serializer.test('div')).toBe(false);
 });
 
-test('serializes React components to formatted HTML', () => {
-	const { serialize } = serializer;
+test('preserves component errors', () => {
+	const componentError = new Error('Expected component error');
 
-	expect(serialize(<div />)).toBe('<div></div>');
-	expect(serialize(createElement('div'))).toBe('<div></div>');
-
-	expect(serialize(<></>)).toBe('');
-	expect(serialize(<Fragment />)).toBe('');
-	expect(serialize(createElement(Fragment))).toBe('');
-
-	const Button = () => {
-		const handleClick = () => {
-			alert('You clicked me!');
-		};
-
-		return (
-			<button type="button" onClick={handleClick}>
-				Click me
-			</button>
-		);
+	const ThrowsAtRuntime = () => {
+		throw componentError;
 	};
 
-	expect(serialize(<Button />)).toBe(
-		'<button type="button">Click me</button>'
+	let thrownError: unknown;
+
+	try {
+		serializer.serialize(<ThrowsAtRuntime />);
+	} catch (error) {
+		thrownError = error;
+	}
+
+	expect(thrownError).toBe(componentError);
+});
+
+test('rejects React trees that cannot render synchronously', () => {
+	const AsyncComponent = async () => {
+		await Promise.resolve();
+
+		return <strong>Ready</strong>;
+	};
+
+	const SuspendsAtRuntime = () =>
+		use(Promise.resolve(<strong>Ready</strong>));
+	const promisedChild = Promise.resolve(<strong>Ready</strong>);
+
+	expect(() =>
+		serializer.serialize(<AsyncComponent />)
+	).toThrowErrorMatchingInlineSnapshot(
+		`[TypeError: \`vitest-react-serializer\` only supports React trees that render synchronously. Suspense, lazy components, and async components cannot be serialized deterministically.]`
+	);
+	expect(() => serializer.serialize(<SuspendsAtRuntime />)).toThrow(
+		TypeError
+	);
+	expect(() => serializer.serialize(<div>{promisedChild}</div>)).toThrow(
+		TypeError
 	);
 
-	/* @ts-expect-error */
-	expect(serialize()).toBe('');
+	expect(() =>
+		serializer.serialize(
+			<Suspense fallback={<em>Loading</em>}>
+				<strong>Ready</strong>
+			</Suspense>
+		)
+	).toThrow(TypeError);
 });
 
-test('is compatible with Vitest API', () => {
-	expect.addSnapshotSerializer(serializer);
-
+test('works with Vitest’s snapshot API', () => {
 	const Button = () => {
 		const handleClick = () => {
 			alert('You clicked me!');
@@ -167,7 +151,10 @@ test('is compatible with Vitest API', () => {
 		</section>
 	);
 
+	expect.addSnapshotSerializer(serializer);
+
 	expect(<Button />).toMatchSnapshot();
 	expect(<Form />).toMatchSnapshot();
 	expect(<Profile />).toMatchSnapshot();
+	expect({ profile: <Profile /> }).toMatchSnapshot();
 });
