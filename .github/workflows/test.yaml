@@ -33,14 +33,10 @@ jobs:
       - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/setup-node@v7.0.0
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: node --version
-      - uses: pnpm/action-setup@v6.0.10
+      - uses: pnpm/setup@v2.0.0
         with:
           cache: true
-      - run: pnpm install
+          runtime: node@${{ matrix.node-version }}
       - run: pnpm add --save-dev vite vitest@5.0.0-beta.7
         if: ${{ matrix.vitest-version == '5' }}
       - run: pnpm test
