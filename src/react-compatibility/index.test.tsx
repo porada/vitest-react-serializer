@@ -3,13 +3,16 @@ import { createContext, lazy, memo, Suspense } from 'react';
 import { expect, test } from 'vitest';
 import {
 	assertSynchronousReactTree,
+	createRenderingErrorMessage,
 	isReactSuspensionError,
 	isReactThenable,
 } from './index.ts';
 
 test('accepts synchronous React trees', () => {
 	const Context = createContext('default');
+
 	const MemoizedComponent = memo(() => <strong>Ready</strong>);
+
 	const ForwardRefComponent = {
 		$$typeof: Symbol.for('react.forward_ref'),
 		render: (_properties: unknown, _reference: unknown) => (
@@ -55,26 +58,35 @@ test('identifies React thenables', () => {
 	expect(isReactThenable(() => {})).toBe(false);
 });
 
+test('prefixes upstream React rendering errors', () => {
+	const error = new Error('Upstream rendering error');
+
+	expect(createRenderingErrorMessage(error)).toMatchInlineSnapshot(`
+		"[vitest-react-serializer] Failed to render component:
+
+		Upstream rendering error"
+	`);
+});
+
 test('rejects unsupported React component types', () => {
 	const AsyncComponent = async () => {
 		await Promise.resolve();
-
 		return <strong>Ready</strong>;
 	};
 
 	const LazyComponent = lazy(async () => {
 		await Promise.resolve();
-
 		return {
 			default: () => <strong>Ready</strong>,
 		};
 	});
+
 	const MemoizedAsyncComponent = memo(AsyncComponent);
+
 	const AsyncForwardRefComponent = {
 		$$typeof: Symbol.for('react.forward_ref'),
 		render: async (_properties: unknown, _reference: unknown) => {
 			await Promise.resolve();
-
 			return <strong>Ready</strong>;
 		},
 	} as unknown as ExoticComponent;
@@ -82,7 +94,7 @@ test('rejects unsupported React component types', () => {
 	expect(() =>
 		assertSynchronousReactTree(<AsyncComponent />)
 	).toThrowErrorMatchingInlineSnapshot(
-		`[TypeError: \`vitest-react-serializer\` only supports React trees that render synchronously. Suspense, lazy components, and async components cannot be serialized deterministically.]`
+		`[TypeError: [vitest-react-serializer] Failed to render component. Async components are unsupported because they can’t be serialized deterministically]`
 	);
 	expect(() =>
 		assertSynchronousReactTree(
@@ -90,9 +102,13 @@ test('rejects unsupported React component types', () => {
 				<strong>Ready</strong>
 			</Suspense>
 		)
-	).toThrow(TypeError);
-	expect(() => assertSynchronousReactTree(<LazyComponent />)).toThrow(
-		TypeError
+	).toThrowErrorMatchingInlineSnapshot(
+		`[TypeError: [vitest-react-serializer] Failed to render component. \`Suspense\` is unsupported because it can’t be serialized deterministically]`
+	);
+	expect(() =>
+		assertSynchronousReactTree(<LazyComponent />)
+	).toThrowErrorMatchingInlineSnapshot(
+		`[TypeError: [vitest-react-serializer] Failed to render component. Lazy components are unsupported because they can’t be serialized deterministically]`
 	);
 	expect(() =>
 		assertSynchronousReactTree(<MemoizedAsyncComponent />)

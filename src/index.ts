@@ -5,9 +5,10 @@ import { isValidElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import {
 	assertSynchronousReactTree,
+	createChildrenRenderingErrorMessage,
+	createRenderingErrorMessage,
 	isReactSuspensionError,
 	isReactThenable,
-	UNSUPPORTED_RENDERING_MESSAGE,
 } from './react-compatibility/index.ts';
 
 export default {
@@ -18,8 +19,14 @@ export default {
 			assertSynchronousReactTree(value as ReactNode);
 			minified = renderToStaticMarkup(value as ReactNode);
 		} catch (error) {
-			if (isReactSuspensionError(error) || isReactThenable(error)) {
-				throw new TypeError(UNSUPPORTED_RENDERING_MESSAGE, {
+			if (isReactSuspensionError(error)) {
+				throw new TypeError(createRenderingErrorMessage(error), {
+					cause: error,
+				});
+			}
+
+			if (isReactThenable(error)) {
+				throw new TypeError(createChildrenRenderingErrorMessage(), {
 					cause: error,
 				});
 			}

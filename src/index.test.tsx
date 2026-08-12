@@ -46,16 +46,29 @@ test('rejects React trees that cannot render synchronously', () => {
 		use(Promise.resolve(<strong>Ready</strong>));
 	const promisedChild = Promise.resolve(<strong>Ready</strong>);
 
+	let renderingError: unknown;
+
+	try {
+		serializer.serialize(<SuspendsAtRuntime />);
+	} catch (error) {
+		renderingError = error;
+	}
+
+	expect(() => serializer.serialize(<AsyncComponent />)).toThrow(TypeError);
+	expect(renderingError).toBeInstanceOf(TypeError);
+	expect((renderingError as Error).cause).toBeInstanceOf(Error);
+
+	const [renderingErrorHeadline] = (renderingError as Error).message.split(
+		'\n'
+	);
+	expect(renderingErrorHeadline).toMatchInlineSnapshot(
+		`"[vitest-react-serializer] Failed to render component:"`
+	);
+
 	expect(() =>
-		serializer.serialize(<AsyncComponent />)
+		serializer.serialize(<div>{promisedChild}</div>)
 	).toThrowErrorMatchingInlineSnapshot(
-		`[TypeError: \`vitest-react-serializer\` only supports React trees that render synchronously. Suspense, lazy components, and async components cannot be serialized deterministically.]`
-	);
-	expect(() => serializer.serialize(<SuspendsAtRuntime />)).toThrow(
-		TypeError
-	);
-	expect(() => serializer.serialize(<div>{promisedChild}</div>)).toThrow(
-		TypeError
+		`[TypeError: [vitest-react-serializer] Failed to render component. Asynchronous children are unsupported because they can’t be serialized deterministically]`
 	);
 
 	expect(() =>
