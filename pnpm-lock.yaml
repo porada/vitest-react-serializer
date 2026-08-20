@@ -32,13 +32,13 @@ importers:
     devDependencies:
       '@standard-config/oxlint':
         specifier: ^2.8.0
-        version: 2.8.0(@standard-config/oxlint-react@2.8.0)(@standard-config/oxlint-stylistic@2.8.0)(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0)))
+        version: 2.8.0(@standard-config/oxlint-react@2.8.0)(@standard-config/oxlint-stylistic@2.8.0)(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0)))
       '@standard-config/oxlint-react':
         specifier: ^2.8.0
-        version: 2.8.0(@standard-config/oxlint@2.8.0)(eslint@10.8.1(supports-color@7.2.0))(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0)))(supports-color@7.2.0)(typescript@6.0.3)
+        version: 2.8.0(@standard-config/oxlint@2.8.0)(eslint@10.8.1(supports-color@7.2.0))(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0)))(supports-color@7.2.0)(typescript@6.0.3)
       '@standard-config/oxlint-stylistic':
         specifier: ^2.8.0
-        version: 2.8.0(@standard-config/oxlint@2.8.0)(eslint@10.8.1(supports-color@7.2.0))(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0)))(supports-color@7.2.0)(typescript@6.0.3)
+        version: 2.8.0(@standard-config/oxlint@2.8.0)(eslint@10.8.1(supports-color@7.2.0))(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0)))(supports-color@7.2.0)(typescript@6.0.3)
       '@standard-config/prettier':
         specifier: ^1.20.0
         version: 1.20.0(prettier@3.9.6)
@@ -58,8 +58,8 @@ importers:
         specifier: ^10.8.1
         version: 10.8.1(supports-color@7.2.0)
       publint:
-        specifier: ^0.3.23
-        version: 0.3.23
+        specifier: ^0.3.24
+        version: 0.3.24
       react:
         specifier: ^19.2.8
         version: 19.2.8
@@ -71,7 +71,7 @@ importers:
         version: 6.0.3
       vite-plus:
         specifier: ^0.2.9
-        version: 0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0)
+        version: 0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0)
       vitest:
         specifier: ^4.1.11
         version: 4.1.11(@vitest/coverage-v8@4.1.10)(yaml@2.9.0)
@@ -529,8 +529,8 @@ packages:
     peerDependencies:
       prettier: '*'
 
-  '@publint/pack@0.1.6':
-    resolution: {integrity: sha512-3uVNyGcVplhPZSLVyeIpL7+cIRn1YCSNHLG/rUIlBQMVH8YuN9++YF+5+UDIIO9RW98dujiUoTltO7RDB5bFJA==}
+  '@publint/pack@0.1.7':
+    resolution: {integrity: sha512-4EDEmvxWtgsCnnVeBvtFIFZtUhPPt1+bA9JrSwU4Sa//6oKtzCSlGGXYJr44OD9aGISymbieJ4mCKHUygUDU+g==}
     engines: {node: '>=18'}
 
   '@reteps/dockerfmt-darwin-arm64@0.5.4':
@@ -1561,8 +1561,8 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
-  publint@0.3.23:
-    resolution: {integrity: sha512-5MQipUPcB7MWw84zLUkHrg/H/UBtk3LL+A0GngTTBSsiNJLQurMUaSIRG3edlOrRz4UFe0AOKK9TZdIWviV+jQ==}
+  publint@0.3.24:
+    resolution: {integrity: sha512-9zS56KrKBoqi5Qt8h92uMP8TTM9AYZSgnmCo4u2priMqkOZvQnTsziZ2p5LJ2ywbYkAjoCDp2jda9u4cgFefIw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2134,7 +2134,7 @@ snapshots:
       make-synchronized: 0.8.0
       prettier: 3.9.6
 
-  '@publint/pack@0.1.6':
+  '@publint/pack@0.1.7':
     dependencies:
       tinyexec: 1.3.0
 
@@ -2201,36 +2201,36 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.1': {}
 
-  '@standard-config/oxlint-react@2.8.0(@standard-config/oxlint@2.8.0)(eslint@10.8.1(supports-color@7.2.0))(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0)))(supports-color@7.2.0)(typescript@6.0.3)':
+  '@standard-config/oxlint-react@2.8.0(@standard-config/oxlint@2.8.0)(eslint@10.8.1(supports-color@7.2.0))(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0)))(supports-color@7.2.0)(typescript@6.0.3)':
     dependencies:
       '@eslint-react/eslint-plugin': 5.18.6(eslint@10.8.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3)
       eslint-plugin-react-you-might-not-need-an-effect: 1.0.1(eslint@10.8.1(supports-color@7.2.0))
-      oxlint: 1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0))
+      oxlint: 1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0))
     optionalDependencies:
-      '@standard-config/oxlint': 2.8.0(@standard-config/oxlint-react@2.8.0)(@standard-config/oxlint-stylistic@2.8.0)(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0)))
+      '@standard-config/oxlint': 2.8.0(@standard-config/oxlint-react@2.8.0)(@standard-config/oxlint-stylistic@2.8.0)(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0)))
     transitivePeerDependencies:
       - eslint
       - supports-color
       - typescript
 
-  '@standard-config/oxlint-stylistic@2.8.0(@standard-config/oxlint@2.8.0)(eslint@10.8.1(supports-color@7.2.0))(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0)))(supports-color@7.2.0)(typescript@6.0.3)':
+  '@standard-config/oxlint-stylistic@2.8.0(@standard-config/oxlint@2.8.0)(eslint@10.8.1(supports-color@7.2.0))(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0)))(supports-color@7.2.0)(typescript@6.0.3)':
     dependencies:
       '@stylistic/eslint-plugin': 5.10.0(eslint@10.8.1(supports-color@7.2.0))
       eslint-plugin-perfectionist: 5.10.1(eslint@10.8.1(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3)
-      oxlint: 1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0))
+      oxlint: 1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0))
     optionalDependencies:
-      '@standard-config/oxlint': 2.8.0(@standard-config/oxlint-react@2.8.0)(@standard-config/oxlint-stylistic@2.8.0)(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0)))
+      '@standard-config/oxlint': 2.8.0(@standard-config/oxlint-react@2.8.0)(@standard-config/oxlint-stylistic@2.8.0)(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0)))
     transitivePeerDependencies:
       - eslint
       - supports-color
       - typescript
 
-  '@standard-config/oxlint@2.8.0(@standard-config/oxlint-react@2.8.0)(@standard-config/oxlint-stylistic@2.8.0)(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0)))':
+  '@standard-config/oxlint@2.8.0(@standard-config/oxlint-react@2.8.0)(@standard-config/oxlint-stylistic@2.8.0)(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0)))':
     dependencies:
-      oxlint: 1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0))
+      oxlint: 1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0))
     optionalDependencies:
-      '@standard-config/oxlint-react': 2.8.0(@standard-config/oxlint@2.8.0)(eslint@10.8.1(supports-color@7.2.0))(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0)))(supports-color@7.2.0)(typescript@6.0.3)
-      '@standard-config/oxlint-stylistic': 2.8.0(@standard-config/oxlint@2.8.0)(eslint@10.8.1(supports-color@7.2.0))(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0)))(supports-color@7.2.0)(typescript@6.0.3)
+      '@standard-config/oxlint-react': 2.8.0(@standard-config/oxlint@2.8.0)(eslint@10.8.1(supports-color@7.2.0))(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0)))(supports-color@7.2.0)(typescript@6.0.3)
+      '@standard-config/oxlint-stylistic': 2.8.0(@standard-config/oxlint@2.8.0)(eslint@10.8.1(supports-color@7.2.0))(oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0)))(supports-color@7.2.0)(typescript@6.0.3)
 
   '@standard-config/prettier@1.20.0(prettier@3.9.6)':
     dependencies:
@@ -2413,7 +2413,7 @@ snapshots:
       convert-source-map: 2.0.0
       tinyrainbow: 3.1.1
 
-  '@voidzero-dev/vite-plus-core@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0)':
+  '@voidzero-dev/vite-plus-core@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0)':
     dependencies:
       '@oxc-project/runtime': 0.143.0
       '@oxc-project/types': 0.143.0
@@ -2431,7 +2431,7 @@ snapshots:
       '@voidzero-dev/vite-plus-win32-arm64-msvc': 0.2.9
       '@voidzero-dev/vite-plus-win32-x64-msvc': 0.2.9
       fsevents: 2.3.3
-      publint: 0.3.23
+      publint: 0.3.24
       typescript: 6.0.3
       yaml: 2.9.0
 
@@ -2980,7 +2980,7 @@ snapshots:
       '@oxlint-tsgolint/win32-arm64': 7.0.2001
       '@oxlint-tsgolint/win32-x64': 7.0.2001
 
-  oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0)):
+  oxlint@1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0)):
     optionalDependencies:
       '@oxlint/binding-android-arm-eabi': 1.79.0
       '@oxlint/binding-android-arm64': 1.79.0
@@ -3002,7 +3002,7 @@ snapshots:
       '@oxlint/binding-win32-ia32-msvc': 1.79.0
       '@oxlint/binding-win32-x64-msvc': 1.79.0
       oxlint-tsgolint: 7.0.2001
-      vite-plus: 0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0)
+      vite-plus: 0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0)
 
   p-limit@3.1.0:
     dependencies:
@@ -3061,9 +3061,9 @@ snapshots:
 
   prettier@3.9.6: {}
 
-  publint@0.3.23:
+  publint@0.3.24:
     dependencies:
-      '@publint/pack': 0.1.6
+      '@publint/pack': 0.1.7
       package-manager-detector: 1.8.0
       picocolors: 1.1.1
       sade: 1.8.1
@@ -3157,12 +3157,12 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  vite-plus@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0):
+  vite-plus@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0):
     dependencies:
       '@oxc-project/types': 0.143.0
       '@oxlint/plugins': 1.73.0
-      '@voidzero-dev/vite-plus-core': 0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0)
-      oxlint: 1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.23)(typescript@6.0.3)(yaml@2.9.0))
+      '@voidzero-dev/vite-plus-core': 0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0)
+      oxlint: 1.79.0(oxlint-tsgolint@7.0.2001)(vite-plus@0.2.9(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.0))
       oxlint-tsgolint: 7.0.2001
     optionalDependencies:
       '@voidzero-dev/vite-plus-darwin-arm64': 0.2.9
