@@ -50,7 +50,7 @@
 		"@standard-config/tsconfig": "^3.2.0",
 		"@types/react": "^19.2.18",
 		"@types/react-dom": "^19.2.7",
-		"@vitest/coverage-v8": "^5.0.0",
+		"@vitest/coverage-v8": "^5.0.1",
 		"eslint": "^10.10.0",
 		"publint": "^0.3.24",
 		"react": "^19.2.8",
