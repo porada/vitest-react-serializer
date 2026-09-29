@@ -32,6 +32,10 @@ overrides:
 peerDependencyRules:
   allowAny:
     - '@vitest/coverage-v8'
+    - typescript
+    - vitest
+  ignoreMissing:
+    - eslint
     - vitest
 
 strictPeerDependencies: true
