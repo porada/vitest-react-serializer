@@ -189,13 +189,13 @@ importers:
     devDependencies:
       '@standard-config/oxlint':
         specifier: ^2.10.0
-        version: 2.10.0(@standard-config/oxlint-react@2.10.0)(@standard-config/oxlint-stylistic@2.9.0)(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1)))
+        version: 2.10.0(@standard-config/oxlint-react@2.10.0)(@standard-config/oxlint-stylistic@2.10.0)(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1)))
       '@standard-config/oxlint-react':
         specifier: ^2.10.0
         version: 2.10.0(@standard-config/oxlint@2.10.0)(eslint@10.11.0)(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)
       '@standard-config/oxlint-stylistic':
-        specifier: ^2.9.0
-        version: 2.9.0(@standard-config/oxlint@2.10.0)(eslint@10.11.0)(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)
+        specifier: ^2.10.0
+        version: 2.10.0(@standard-config/oxlint@2.10.0)(eslint@10.11.0)(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)
       '@standard-config/prettier':
         specifier: ^1.21.1
         version: 1.21.1(prettier@3.9.9)
@@ -758,8 +758,8 @@ packages:
       '@standard-config/oxlint':
         optional: true
 
-  '@standard-config/oxlint-stylistic@2.9.0':
-    resolution: {integrity: sha512-IVD5BZ8CThcOxWoLYLg78zHRnJTAI++1Ma+IhWSPK+NhzRbnv8c3hVhax8ELBZ2TO6UJCRNo/MIcz7iocaeynw==}
+  '@standard-config/oxlint-stylistic@2.10.0':
+    resolution: {integrity: sha512-0SMKCsfrsb8qcLNghBhyHjjoyNtQ/D7qLmbDRw3j3WIaD/eoYZ65nP9f0N+tTumHbgiOdRjHZuX7zvqQCQ+ieA==}
     engines: {node: '>=22'}
     peerDependencies:
       '@standard-config/oxlint': ^2.0.1
@@ -2217,30 +2217,30 @@ snapshots:
       eslint-plugin-react-you-might-not-need-an-effect: 1.0.2(eslint@10.11.0)
       oxlint: 1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1))
     optionalDependencies:
-      '@standard-config/oxlint': 2.10.0(@standard-config/oxlint-react@2.10.0)(@standard-config/oxlint-stylistic@2.9.0)(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1)))
+      '@standard-config/oxlint': 2.10.0(@standard-config/oxlint-react@2.10.0)(@standard-config/oxlint-stylistic@2.10.0)(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1)))
     transitivePeerDependencies:
       - eslint
       - supports-color
       - typescript
 
-  '@standard-config/oxlint-stylistic@2.9.0(@standard-config/oxlint@2.10.0)(eslint@10.11.0)(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)':
+  '@standard-config/oxlint-stylistic@2.10.0(@standard-config/oxlint@2.10.0)(eslint@10.11.0)(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)':
     dependencies:
       '@stylistic/eslint-plugin': 5.10.0(eslint@10.11.0)
       eslint-plugin-perfectionist: 5.12.1(eslint@10.11.0)(typescript@6.0.3)
       oxlint: 1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1))
     optionalDependencies:
-      '@standard-config/oxlint': 2.10.0(@standard-config/oxlint-react@2.10.0)(@standard-config/oxlint-stylistic@2.9.0)(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1)))
+      '@standard-config/oxlint': 2.10.0(@standard-config/oxlint-react@2.10.0)(@standard-config/oxlint-stylistic@2.10.0)(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1)))
     transitivePeerDependencies:
       - eslint
       - supports-color
       - typescript
 
-  '@standard-config/oxlint@2.10.0(@standard-config/oxlint-react@2.10.0)(@standard-config/oxlint-stylistic@2.9.0)(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1)))':
+  '@standard-config/oxlint@2.10.0(@standard-config/oxlint-react@2.10.0)(@standard-config/oxlint-stylistic@2.10.0)(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1)))':
     dependencies:
       oxlint: 1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1))
     optionalDependencies:
       '@standard-config/oxlint-react': 2.10.0(@standard-config/oxlint@2.10.0)(eslint@10.11.0)(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)
-      '@standard-config/oxlint-stylistic': 2.9.0(@standard-config/oxlint@2.10.0)(eslint@10.11.0)(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)
+      '@standard-config/oxlint-stylistic': 2.10.0(@standard-config/oxlint@2.10.0)(eslint@10.11.0)(oxlint@1.86.0(oxlint-tsgolint@7.0.2003)(vite-plus@1.0.0(publint@0.3.24)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)
 
   '@standard-config/prettier@1.21.1(prettier@3.9.9)':
     dependencies:
