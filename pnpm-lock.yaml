@@ -213,8 +213,8 @@ importers:
         specifier: ^19.3.0
         version: 19.3.0(@types/react@19.3.0)
       '@vitest/coverage-v8':
-        specifier: ^5.0.4
-        version: 5.0.4(vitest@5.0.4)
+        specifier: ^5.0.5
+        version: 5.0.5(vitest@5.0.4)
       publint:
         specifier: ^0.3.25
         version: 0.3.25
@@ -232,7 +232,7 @@ importers:
         version: 1.2.0(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)
       vitest:
         specifier: ^5.0.4
-        version: 5.0.4(@vitest/coverage-v8@5.0.4)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)
+        version: 5.0.4(@vitest/coverage-v8@5.0.5)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)
 
 packages:
 
@@ -800,11 +800,11 @@ packages:
     resolution: {integrity: sha512-zozlN0UA32bSG2zkKAgQyRYSbEISVoyU6vvkKYo2aSny74D8Jh4e+POkJ6Lk0dlezZi5x7TtD+88Xb06IB8nhg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@vitest/coverage-v8@5.0.4':
-    resolution: {integrity: sha512-P5YcQY8Y6RmoE9xRXI38rT8pssbcubEzqtYTM2XQoxOXMDn04nRaTI1SM8qCl9/NfW3ag9GlzdSXu7IwO5Ft8A==}
+  '@vitest/coverage-v8@5.0.5':
+    resolution: {integrity: sha512-4KpkGdIrSqBihx/JyP/e+S+IKB98etg1XDQiLAxksLfcShnwi1VReGeOT9NI43hLHbknosKp/1CCLn9Zgcs8mg==}
     peerDependencies:
-      '@vitest/browser': 5.0.4
-      vitest: 5.0.4
+      '@vitest/browser': 5.0.5
+      vitest: 5.0.5
     peerDependenciesMeta:
       '@vitest/browser':
         optional: true
@@ -1961,7 +1961,7 @@ snapshots:
       '@typescript-eslint/types': 8.71.2
       eslint-visitor-keys: 5.0.1
 
-  '@vitest/coverage-v8@5.0.4(vitest@5.0.4)':
+  '@vitest/coverage-v8@5.0.5(vitest@5.0.4)':
     dependencies:
       '@bcoe/v8-coverage': 1.0.2
       '@vitest/istanbul-lib-coverage': 1.0.2
@@ -1971,7 +1971,7 @@ snapshots:
       obug: 3.0.0
       std-env: 4.3.0
       tinyrainbow: 3.2.0
-      vitest: 5.0.4(@vitest/coverage-v8@5.0.4)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)
+      vitest: 5.0.4(@vitest/coverage-v8@5.0.5)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)
 
   '@vitest/istanbul-lib-coverage@1.0.2': {}
 
@@ -2526,7 +2526,7 @@ snapshots:
       - vue-tsc
       - yaml
 
-  vitest@5.0.4(@vitest/coverage-v8@5.0.4)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1):
+  vitest@5.0.4(@vitest/coverage-v8@5.0.5)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1):
     dependencies:
       '@types/chai': 5.2.3
       '@vitest/mocker': 5.0.4(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)
@@ -2543,7 +2543,7 @@ snapshots:
       vite: '@voidzero-dev/vite-plus-core@1.2.0(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)'
       why-is-node-running: 3.2.1
     optionalDependencies:
-      '@vitest/coverage-v8': 5.0.4(vitest@5.0.4)
+      '@vitest/coverage-v8': 5.0.5(vitest@5.0.4)
     transitivePeerDependencies:
       - '@arethetypeswrong/core'
       - '@typescript/native-preview'
