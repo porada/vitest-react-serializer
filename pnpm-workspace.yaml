@@ -36,6 +36,7 @@ peerDependencyRules:
   allowAny:
     - '@vitest/coverage-v8'
     - typescript
+    - vite
     - vitest
   ignoreMissing:
     - eslint
