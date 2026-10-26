@@ -30,7 +30,7 @@ overrides:
   vite-plus>oxlint: latest
   vite-plus>oxlint-tsgolint: latest
   vite-plus>vitest: '-'
-  vite: npm:@voidzero-dev/vite-plus-core@1.3.0
+  vite: npm:@voidzero-dev/vite-plus-core@1.4.0
 
 peerDependencyRules:
   allowAny:
@@ -45,5 +45,3 @@ peerDependencyRules:
 strictPeerDependencies: true
 
 trustPolicy: no-downgrade
-
-trustPolicyIgnoreAfter: 43200
