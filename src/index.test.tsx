@@ -1,15 +1,19 @@
 import type { SnapshotSerializer } from 'vitest';
 import { Suspense, use } from 'react';
 import { expect, expectTypeOf, test } from 'vitest';
-import serializer from './index.ts';
+import serializer, * as exports from './index.ts';
 
 test('exposes correct public API', () => {
 	expectTypeOf(serializer).toExtend<SnapshotSerializer>();
 
-	expect(serializer).toStrictEqual({
-		serialize: expect.any(Function),
-		test: expect.any(Function),
-	});
+	expect({ ...exports }).toMatchInlineSnapshot(`
+		{
+		  "default": {
+		    "serialize": [Function],
+		    "test": [Function],
+		  },
+		}
+	`);
 });
 
 test('identifies React elements', () => {
@@ -18,69 +22,72 @@ test('identifies React elements', () => {
 });
 
 test('preserves component errors', () => {
-	const componentError = new Error('Expected component error');
+	const error = new Error('Expected component error');
 
 	const ThrowsAtRuntime = () => {
-		throw componentError;
+		throw error;
 	};
 
-	let thrownError: unknown;
+	let result: unknown;
 
 	try {
 		serializer.serialize(<ThrowsAtRuntime />);
-	} catch (error) {
-		thrownError = error;
+	} catch (caughtError) {
+		result = caughtError;
 	}
 
-	expect(thrownError).toBe(componentError);
+	expect(result).toBe(error);
 });
 
-test('rejects React trees that cannot render synchronously', () => {
+test('rejects async components', () => {
 	const AsyncComponent = async () => {
 		await Promise.resolve();
 
-		return <strong>Ready</strong>;
+		return <strong>foo</strong>;
 	};
 
-	const SuspendsAtRuntime = () =>
-		use(Promise.resolve(<strong>Ready</strong>));
-	const promisedChild = Promise.resolve(<strong>Ready</strong>);
+	expect(() => serializer.serialize(<AsyncComponent />)).toThrow(TypeError);
+});
 
-	let renderingError: unknown;
+test('rejects components that suspend', () => {
+	const SuspendsAtRuntime = () => use(Promise.resolve(<strong>foo</strong>));
+
+	let result: unknown;
 
 	try {
 		serializer.serialize(<SuspendsAtRuntime />);
-	} catch (error) {
-		renderingError = error;
+	} catch (caughtError) {
+		result = caughtError;
 	}
 
-	expect(() => serializer.serialize(<AsyncComponent />)).toThrow(TypeError);
-	expect(renderingError).toBeInstanceOf(TypeError);
-	expect((renderingError as Error).cause).toBeInstanceOf(Error);
-
-	const [renderingErrorHeadline] = (renderingError as Error).message.split(
-		'\n'
-	);
-	expect(renderingErrorHeadline).toMatchInlineSnapshot(
+	expect(result).toBeInstanceOf(TypeError);
+	expect((result as Error).cause).toBeInstanceOf(Error);
+	expect((result as Error).message.split('\n')[0]).toMatchInlineSnapshot(
 		`"[vitest-react-serializer] Failed to render component:"`
 	);
+});
+
+test('rejects asynchronous children', () => {
+	const promisedChild = Promise.resolve(<strong>foo</strong>);
 
 	expect(() =>
 		serializer.serialize(<div>{promisedChild}</div>)
 	).toThrowErrorMatchingInlineSnapshot(
 		`[TypeError: [vitest-react-serializer] Failed to render component. Asynchronous children are unsupported because they can’t be serialized deterministically]`
 	);
+});
 
+test('rejects `Suspense`', () => {
 	expect(() =>
 		serializer.serialize(
-			<Suspense fallback={<em>Loading</em>}>
-				<strong>Ready</strong>
+			<Suspense fallback={<em>bar</em>}>
+				<strong>foo</strong>
 			</Suspense>
 		)
 	).toThrow(TypeError);
 });
 
-test('works with Vitest’s snapshot API', () => {
+test('serializes HTML', () => {
 	const Button = () => {
 		const handleClick = () => {
 			alert('You clicked me!');
@@ -103,38 +110,24 @@ test('works with Vitest’s snapshot API', () => {
 		>
 			<div className="form-field">
 				<label htmlFor="username">
-					Email Address
+					Email address
 					<input
 						id="username"
 						type="email"
 						name="username"
-						autoComplete="username"
+						/* oxlint-disable-next-line jsx-a11y/autocomplete-valid */
+						autoComplete="username webauthn"
 						required
 						autoFocus
 					/>
 				</label>
 			</div>
-			<div className="form-field">
-				<label htmlFor="password">
-					Password
-					<input
-						id="password"
-						type="password"
-						name="password"
-						autoComplete="current-password"
-						minLength={8}
-						required
-					/>
-				</label>
-			</div>
-			<button type="submit" disabled={false}>
-				Sign in
-			</button>
+			<button type="submit">Continue</button>
 			<footer>
-				<p className="login-help">
-					Forgot password?{' '}
-					<a className="login-help-link" href="/login/password-reset">
-						Reset it here
+				<p className="form-notice">
+					Don’t have an account?{' '}
+					<a className="form-notice-link" href="/sign-up">
+						Sign up
 					</a>
 					.
 				</p>
@@ -164,10 +157,140 @@ test('works with Vitest’s snapshot API', () => {
 		</section>
 	);
 
+	const Signature = () => (
+		<footer>
+			<address>
+				Hedy Lamarr Foundation
+				<br />
+				Vienna, Austria
+			</address>
+			<hr />
+			<img src="logo.svg" alt="Hedy Lamarr Foundation" loading="lazy" />
+		</footer>
+	);
+
 	expect.addSnapshotSerializer(serializer);
 
-	expect(<Button />).toMatchSnapshot();
-	expect(<Form />).toMatchSnapshot();
-	expect(<Profile />).toMatchSnapshot();
-	expect({ profile: <Profile /> }).toMatchSnapshot();
+	expect(<Button />).toMatchInlineSnapshot(
+		`<button type="button">Click me</button>`
+	);
+
+	expect(<Form />).toMatchInlineSnapshot(`
+		<form
+		  name="login"
+		  autocomplete="on"
+		  novalidate=""
+		  action="/login"
+		  method="post"
+		>
+		  <div class="form-field">
+		    <label for="username"
+		      >Email address<input
+		        id="username"
+		        type="email"
+		        autocomplete="username webauthn"
+		        required=""
+		        autofocus=""
+		        name="username"
+		    /></label>
+		  </div>
+		  <button type="submit">Continue</button>
+		  <footer>
+		    <p class="form-notice">
+		      Don’t have an account?
+		      <a
+		        class="form-notice-link"
+		        href="/sign-up"
+		        >Sign up</a
+		      >.
+		    </p>
+		  </footer>
+		</form>
+	`);
+
+	expect(<Profile />).toMatchInlineSnapshot(`
+		<section>
+		  <h1>Hedy Lamarr</h1>
+		  <ul>
+		    <li><strong>Profession:</strong> Actress and inventor</li>
+		    <li><strong>Awards:</strong> National Inventors Hall of Fame</li>
+		    <li><strong>Born:</strong> November 9, 1914</li>
+		  </ul>
+		  <p>
+		    Hedy Lamarr was an Austrian-born American actress and inventor who pioneered
+		    early techniques for spread spectrum communications.
+		  </p>
+		</section>
+	`);
+
+	expect(<Signature />).toMatchInlineSnapshot(`
+		<footer>
+		  <address>Hedy Lamarr Foundation<br />Vienna, Austria</address>
+		  <hr />
+		  <img
+		    src="logo.svg"
+		    alt="Hedy Lamarr Foundation"
+		    loading="lazy"
+		  />
+		</footer>
+	`);
+});
+
+test('respects indentation', () => {
+	const Code = () => (
+		<figure>
+			<pre>
+				<code>
+					{'function foo(bar, baz) {\n\treturn bar + baz;\n}'}
+				</code>
+			</pre>
+		</figure>
+	);
+
+	const Head = () => (
+		<head>
+			<title>Foo</title>
+			<style>{'.foo{color:red}'}</style>
+			<script>{'const foo=1;console.log(foo)'}</script>
+		</head>
+	);
+
+	expect.addSnapshotSerializer(serializer);
+
+	const nest = (children: React.ReactNode) => ({
+		props: {
+			children,
+		},
+	});
+
+	expect(nest(<Code />)).toMatchInlineSnapshot(`
+		{
+		  "props": {
+		    "children": <figure>
+		      <pre><code>function foo(bar, baz) {
+		    	return bar + baz;
+		    }</code></pre>
+		    </figure>,
+		  },
+		}
+	`);
+
+	expect(nest(<Head />)).toMatchInlineSnapshot(`
+		{
+		  "props": {
+		    "children": <head>
+		      <title>Foo</title>
+		      <style>
+		        .foo {
+		          color: red;
+		        }
+		      </style>
+		      <script>
+		        const foo = 1;
+		        console.log(foo);
+		      </script>
+		    </head>,
+		  },
+		}
+	`);
 });

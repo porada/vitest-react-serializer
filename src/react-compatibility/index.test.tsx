@@ -9,21 +9,21 @@ import {
 } from './index.ts';
 
 test('accepts synchronous React trees', () => {
-	const Context = createContext('default');
+	const Context = createContext('foo');
 
-	const MemoizedComponent = memo(() => <strong>Ready</strong>);
+	const MemoizedComponent = memo(() => <strong>bar</strong>);
 
 	const ForwardRefComponent = {
 		$$typeof: Symbol.for('react.forward_ref'),
 		render: (_properties: unknown, _reference: unknown) => (
-			<strong>Ready</strong>
+			<strong>bar</strong>
 		),
 	} as unknown as ExoticComponent;
 
 	expect(() =>
 		assertSynchronousReactTree(
-			<Context value="current">
-				Ready
+			<Context value="baz">
+				bar
 				<div />
 				<MemoizedComponent />
 				<ForwardRefComponent />
@@ -71,13 +71,13 @@ test('prefixes upstream React rendering errors', () => {
 test('rejects unsupported React component types', () => {
 	const AsyncComponent = async () => {
 		await Promise.resolve();
-		return <strong>Ready</strong>;
+		return <strong>foo</strong>;
 	};
 
 	const LazyComponent = lazy(async () => {
 		await Promise.resolve();
 		return {
-			default: () => <strong>Ready</strong>,
+			default: () => <strong>foo</strong>,
 		};
 	});
 
@@ -87,7 +87,7 @@ test('rejects unsupported React component types', () => {
 		$$typeof: Symbol.for('react.forward_ref'),
 		render: async (_properties: unknown, _reference: unknown) => {
 			await Promise.resolve();
-			return <strong>Ready</strong>;
+			return <strong>foo</strong>;
 		},
 	} as unknown as ExoticComponent;
 
@@ -98,8 +98,8 @@ test('rejects unsupported React component types', () => {
 	);
 	expect(() =>
 		assertSynchronousReactTree(
-			<Suspense fallback={<em>Loading</em>}>
-				<strong>Ready</strong>
+			<Suspense fallback={<em>bar</em>}>
+				<strong>foo</strong>
 			</Suspense>
 		)
 	).toThrowErrorMatchingInlineSnapshot(
