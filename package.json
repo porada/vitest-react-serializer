@@ -34,8 +34,7 @@
 	},
 	"packageManager": "pnpm@12.15.0",
 	"dependencies": {
-		"@prettier/sync": "^0.6.1",
-		"prettier": "~3.9.10"
+		"@wasm-fmt/web_fmt": "~0.2.9"
 	},
 	"peerDependencies": {
 		"react": ">=19",
@@ -51,6 +50,7 @@
 		"@types/react": "^19.3.0",
 		"@types/react-dom": "^19.3.0",
 		"@vitest/coverage-v8": "^5.0.5",
+		"prettier": "^3.9.10",
 		"publint": "^0.3.25",
 		"react": "^19.3.1",
 		"react-dom": "^19.3.1",

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { SnapshotSerializer } from 'vitest';
-import prettier from '@prettier/sync';
+import { format } from '@wasm-fmt/web_fmt';
 import { isValidElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import {
@@ -14,6 +14,7 @@ import {
 export default {
 	serialize(value, _config?: unknown, indentation = '') {
 		let minified: string;
+		let formatted: string;
 
 		try {
 			assertSynchronousReactTree(value as ReactNode);
@@ -34,20 +35,27 @@ export default {
 			throw error;
 		}
 
-		const formatted = prettier.format(minified, {
-			parser: 'html',
-
-			// Match the output of Vitest’s built-in snapshot serializers
-			// (which rely on `pretty-format` under the hood)
-			bracketSameLine: false,
-			endOfLine: 'lf',
-			htmlWhitespaceSensitivity: 'css',
-			printWidth: 80,
-			singleAttributePerLine: true,
-			singleQuote: false,
-			tabWidth: 2,
-			useTabs: false,
-		});
+		try {
+			formatted = format(minified, 'index.html', {
+				// Match the output of Vitest’s built-in snapshot serializers
+				// (which rely on `pretty-format` under the hood)
+				indentStyle: 'space',
+				markup: {
+					'closingTagLineBreakForEmpty': 'never',
+					'html.void.selfClosing': true,
+					'maxAttrsPerLine': 1,
+					'scriptIndent': true,
+					'singleAttrSameLine': false,
+					'styleIndent': true,
+				},
+			});
+		} catch (error) {
+			// `web_fmt` throws plain strings, which Vitest reports without a stack
+			throw new SyntaxError(
+				`[vitest-react-serializer] Failed to format rendered component HTML:\n\n${String(error)}`,
+				{ cause: error }
+			);
+		}
 
 		return formatted.trim().replaceAll('\n', `\n${indentation}`);
 	},

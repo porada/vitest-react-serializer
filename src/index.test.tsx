@@ -87,6 +87,24 @@ test('rejects `Suspense`', () => {
 	).toThrow(TypeError);
 });
 
+test('rejects malformed markup', () => {
+	let result: unknown;
+
+	try {
+		serializer.serialize(
+			<div dangerouslySetInnerHTML={{ __html: '<span>foo' }} />
+		);
+	} catch (caughtError) {
+		result = caughtError;
+	}
+
+	expect(result).toBeInstanceOf(SyntaxError);
+	expect((result as Error).cause).toBeTypeOf('string');
+	expect((result as Error).message.split('\n')[0]).toMatchInlineSnapshot(
+		`"[vitest-react-serializer] Failed to format rendered component HTML:"`
+	);
+});
+
 test('serializes HTML', () => {
 	const Button = () => {
 		const handleClick = () => {
@@ -178,31 +196,28 @@ test('serializes HTML', () => {
 	expect(<Form />).toMatchInlineSnapshot(`
 		<form
 		  name="login"
-		  autocomplete="on"
-		  novalidate=""
+		  autoComplete="on"
+		  noValidate=""
 		  action="/login"
 		  method="post"
 		>
 		  <div class="form-field">
-		    <label for="username"
-		      >Email address<input
+		    <label for="username">Email address<input
 		        id="username"
 		        type="email"
-		        autocomplete="username webauthn"
+		        autoComplete="username webauthn"
 		        required=""
 		        autofocus=""
 		        name="username"
-		    /></label>
+		      /></label>
 		  </div>
 		  <button type="submit">Continue</button>
 		  <footer>
 		    <p class="form-notice">
-		      Don’t have an account?
-		      <a
+		      Don’t have an account? <a
 		        class="form-notice-link"
 		        href="/sign-up"
-		        >Sign up</a
-		      >.
+		      >Sign up</a>.
 		    </p>
 		  </footer>
 		</form>
@@ -226,8 +241,7 @@ test('serializes HTML', () => {
 	expect(<Signature />).toMatchInlineSnapshot(`
 		<footer>
 		  <address>Hedy Lamarr Foundation<br />Vienna, Austria</address>
-		  <hr />
-		  <img
+		  <hr /><img
 		    src="logo.svg"
 		    alt="Hedy Lamarr Foundation"
 		    loading="lazy"

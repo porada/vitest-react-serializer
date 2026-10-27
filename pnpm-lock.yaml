@@ -184,12 +184,9 @@ importers:
 
   .:
     dependencies:
-      '@prettier/sync':
-        specifier: ^0.6.1
-        version: 0.6.1(prettier@3.9.10)
-      prettier:
-        specifier: ~3.9.10
-        version: 3.9.10
+      '@wasm-fmt/web_fmt':
+        specifier: ~0.2.9
+        version: 0.2.9
     devDependencies:
       '@standard-config/oxlint':
         specifier: ^2.10.1
@@ -215,6 +212,9 @@ importers:
       '@vitest/coverage-v8':
         specifier: ^5.0.5
         version: 5.0.5(vitest@5.0.5)
+      prettier:
+        specifier: ^3.9.10
+        version: 3.9.10
       publint:
         specifier: ^0.3.25
         version: 0.3.25
@@ -656,11 +656,6 @@ packages:
     resolution: {integrity: sha512-6TYRFBxthmW0IULsZjik2Gu62jc17xPILlcSIXTXfrhDH4etIcissalZ+RO5oweMWidM3jJ38QJbkD2C6J0/LA==}
     engines: {node: '>=14'}
 
-  '@prettier/sync@0.6.1':
-    resolution: {integrity: sha512-yF9G8vK/LYUTF3Cijd7VC9La3b20F20/J/fgoR4H0B8JGOWnZVZX6+I6+vODPosjmMcpdlUV+gUqJQZp3kLOcw==}
-    peerDependencies:
-      prettier: '*'
-
   '@publint/pack@0.1.7':
     resolution: {integrity: sha512-4EDEmvxWtgsCnnVeBvtFIFZtUhPPt1+bA9JrSwU4Sa//6oKtzCSlGGXYJr44OD9aGISymbieJ4mCKHUygUDU+g==}
     engines: {node: '>=18'}
@@ -951,6 +946,9 @@ packages:
     engines: {node: '>=20.0.0'}
     cpu: [x64]
     os: [win32]
+
+  '@wasm-fmt/web_fmt@0.2.9':
+    resolution: {integrity: sha512-kcxEzXbgRSDZHj6SH2LgVRmSwOIJjhafyF/jbpU8Dl+WwRsWxAB5Pv67ix7F6lrgNJZ5++qbSOX+8WLDKS1cMw==}
 
   '@yuku-core/binding-android-arm64@0.19.0':
     resolution: {integrity: sha512-wdL2XmTiZixAOaHk9Z0JJZ8u9Qm8d333Zjpc6gaxXFX+UR5BlsfxZ7a2+2Rm71pamppsPYGUGFq2oVLbh6DISw==}
@@ -1274,9 +1272,6 @@ packages:
 
   magicast@0.5.5:
     resolution: {integrity: sha512-UicdXN8zQ3JHlxVq+28afMXPr1z7WNY6+7EJnzTdQWkTAlMLF5fNCCKxJHBQwGaNGR11581EiQmQzx73+MvszA==}
-
-  make-synchronized@0.8.0:
-    resolution: {integrity: sha512-DZu4lwc0ffoFz581BSQa/BJl+1ZqIkoRQ+VejMlH0VrP4E86StAODnZujZ4sepumQj8rcP7wUnUBGM8Gu+zKUA==}
 
   minimatch@10.2.6:
     resolution: {integrity: sha512-vpLQEs+VLCr1nU0BXS07maYoFwlDAH0gngQuuttxIwutDFEMHq2blX+8vpgxDdK3J1PwjCJiep77OitTZ4Ll1A==}
@@ -1810,11 +1805,6 @@ snapshots:
     dependencies:
       oxc-parser: 0.139.0
 
-  '@prettier/sync@0.6.1(prettier@3.9.10)':
-    dependencies:
-      make-synchronized: 0.8.0
-      prettier: 3.9.10
-
   '@publint/pack@0.1.7':
     dependencies:
       tinyexec: 1.3.1
@@ -2059,6 +2049,8 @@ snapshots:
 
   '@voidzero-dev/vite-plus-win32-x64-msvc@1.4.0':
     optional: true
+
+  '@wasm-fmt/web_fmt@0.2.9': {}
 
   '@yuku-core/binding-android-arm64@0.19.0':
     optional: true
@@ -2323,8 +2315,6 @@ snapshots:
       '@babel/parser': 7.29.11
       '@babel/types': 7.29.11
       source-map-js: 1.2.2
-
-  make-synchronized@0.8.0: {}
 
   minimatch@10.2.6:
     dependencies:
