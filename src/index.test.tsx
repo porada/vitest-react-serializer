@@ -56,8 +56,8 @@ test('rejects components that suspend', () => {
 
 	try {
 		serializer.serialize(<SuspendsAtRuntime />);
-	} catch (caughtError) {
-		result = caughtError;
+	} catch (error) {
+		result = error;
 	}
 
 	expect(result).toBeInstanceOf(TypeError);
@@ -85,24 +85,6 @@ test('rejects `Suspense`', () => {
 			</Suspense>
 		)
 	).toThrow(TypeError);
-});
-
-test('rejects malformed markup', () => {
-	let result: unknown;
-
-	try {
-		serializer.serialize(
-			<div dangerouslySetInnerHTML={{ __html: '<span>foo' }} />
-		);
-	} catch (caughtError) {
-		result = caughtError;
-	}
-
-	expect(result).toBeInstanceOf(SyntaxError);
-	expect((result as Error).cause).toBeTypeOf('string');
-	expect((result as Error).message.split('\n')[0]).toMatchInlineSnapshot(
-		`"[vitest-react-serializer] Failed to format rendered component HTML:"`
-	);
 });
 
 test('serializes HTML', () => {

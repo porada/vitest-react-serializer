@@ -1,5 +1,4 @@
-import type { ExoticComponent } from 'react';
-import { createContext, lazy, memo, Suspense } from 'react';
+import { createContext, forwardRef, lazy, memo, Suspense } from 'react';
 import { expect, test } from 'vitest';
 import {
 	assertSynchronousReactTree,
@@ -13,12 +12,8 @@ test('accepts synchronous React trees', () => {
 
 	const MemoizedComponent = memo(() => <strong>bar</strong>);
 
-	const ForwardRefComponent = {
-		$$typeof: Symbol.for('react.forward_ref'),
-		render: (_properties: unknown, _reference: unknown) => (
-			<strong>bar</strong>
-		),
-	} as unknown as ExoticComponent;
+	/* oxlint-disable-next-line react-x/no-forward-ref */
+	const ForwardRefComponent = forwardRef(() => <strong>bar</strong>);
 
 	expect(() =>
 		assertSynchronousReactTree(
@@ -47,12 +42,9 @@ test('identifies React suspension errors', () => {
 });
 
 test('identifies React thenables', () => {
-	const valueWithNonFunctionThen = {};
-	const thenProperty = ['t', 'hen'].join('');
-	Reflect.set(valueWithNonFunctionThen, thenProperty, true);
-
 	expect(isReactThenable(Promise.resolve())).toBe(true);
-	expect(isReactThenable(valueWithNonFunctionThen)).toBe(false);
+	/* oxlint-disable-next-line unicorn/no-thenable */
+	expect(isReactThenable({ then: true })).toBe(false);
 	expect(isReactThenable({})).toBe(false);
 	expect(isReactThenable(null)).toBe(false);
 	expect(isReactThenable(() => {})).toBe(false);
@@ -83,13 +75,11 @@ test('rejects unsupported React component types', () => {
 
 	const MemoizedAsyncComponent = memo(AsyncComponent);
 
-	const AsyncForwardRefComponent = {
-		$$typeof: Symbol.for('react.forward_ref'),
-		render: async (_properties: unknown, _reference: unknown) => {
-			await Promise.resolve();
-			return <strong>foo</strong>;
-		},
-	} as unknown as ExoticComponent;
+	/* oxlint-disable-next-line react-x/no-forward-ref */
+	const AsyncForwardRefComponent = forwardRef(async () => {
+		await Promise.resolve();
+		return <strong>foo</strong>;
+	});
 
 	expect(() =>
 		assertSynchronousReactTree(<AsyncComponent />)

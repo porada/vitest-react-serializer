@@ -33,5 +33,5 @@ jobs:
         with:
           cache: true
           runtime: node@${{ matrix.node-version }}
-      - run: pnpm add --save-dev vitest@${{ matrix.vitest-version }}
+      - run: pnpm add --save-dev vitest@${{ matrix.vitest-version }} @vitest/browser-playwright@${{ matrix.vitest-version }}
       - run: pnpm test
