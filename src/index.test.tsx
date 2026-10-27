@@ -115,7 +115,6 @@ test('serializes HTML', () => {
 						id="username"
 						type="email"
 						name="username"
-						/* oxlint-disable-next-line jsx-a11y/autocomplete-valid */
 						autoComplete="username webauthn"
 						required
 						autoFocus
