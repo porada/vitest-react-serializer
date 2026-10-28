@@ -5,7 +5,7 @@ const { format } = await loadFormatter();
  * serializers in Node, so the choice relies on the module URL rather than
  * export conditions. Importing the entries directly avoids the package root’s
  * `import source` syntax, which Vite doesn’t support. The `vite` entry also
- * keeps WASM imports working after pre-bundling
+ * keeps WASM imports working after pre-bundling.
  */
 async function loadFormatter() {
 	if (import.meta.url.startsWith('file:')) {
@@ -19,7 +19,7 @@ async function loadFormatter() {
 
 /**
  * Formats HTML with the initialized WASM formatter. The output follows Vitest’s
- * built-in snapshot serializers, which rely on `pretty-format` under the hood
+ * built-in snapshot serializers, which rely on `pretty-format` under the hood.
  */
 export default function formatHTML(text: string): string {
 	try {
