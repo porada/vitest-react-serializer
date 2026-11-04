@@ -12,7 +12,6 @@ test('accepts synchronous React trees', () => {
 
 	const MemoizedComponent = memo(() => <strong>bar</strong>);
 
-	/* oxlint-disable-next-line react-x/no-forward-ref */
 	const ForwardRefComponent = forwardRef(() => <strong>bar</strong>);
 
 	expect(() =>
@@ -43,7 +42,6 @@ test('identifies React suspension errors', () => {
 
 test('identifies React thenables', () => {
 	expect(isReactThenable(Promise.resolve())).toBe(true);
-	/* oxlint-disable-next-line unicorn/no-thenable */
 	expect(isReactThenable({ then: true })).toBe(false);
 	expect(isReactThenable({})).toBe(false);
 	expect(isReactThenable(null)).toBe(false);
@@ -75,7 +73,6 @@ test('rejects unsupported React component types', () => {
 
 	const MemoizedAsyncComponent = memo(AsyncComponent);
 
-	/* oxlint-disable-next-line react-x/no-forward-ref */
 	const AsyncForwardRefComponent = forwardRef(async () => {
 		await Promise.resolve();
 		return <strong>foo</strong>;
