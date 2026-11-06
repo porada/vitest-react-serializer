@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { Suspense, use } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { expect, expectTypeOf, test } from 'vitest';
 import serializer, * as exports from './index.ts';
 
@@ -77,28 +78,70 @@ test('rejects components that suspend', () => {
 	expect(result).toBeInstanceOf(TypeError);
 	expect((result as Error).cause).toBeInstanceOf(Error);
 	expect((result as Error).message.split('\n')[0]).toMatchInlineSnapshot(
-		`"[vitest-react-serializer] Failed to render component:"`
+		`"[vitest-react-serializer] Failed to render component. Snapshot serializers run synchronously, but a component suspended:"`
 	);
 });
 
-test('rejects asynchronous children', () => {
+test('rejects promises passed as children', () => {
 	const promisedChild = Promise.resolve(<strong>foo</strong>);
 
 	expect(() =>
 		serializer.serialize(<div>{promisedChild}</div>)
 	).toThrowErrorMatchingInlineSnapshot(
-		`[TypeError: [vitest-react-serializer] Failed to render component. Asynchronous children are unsupported because they can’t be serialized deterministically]`
+		`[TypeError: [vitest-react-serializer] Failed to render component. Promise children can’t be serialized because synchronous access to their values isn’t guaranteed]`
 	);
 });
 
-test('rejects `Suspense`', () => {
+test('rejects resolved promises passed as children', async () => {
+	const promisedChild = Promise.resolve(<strong>foo</strong>);
+
+	renderToStaticMarkup(<Suspense>{promisedChild}</Suspense>);
+	await promisedChild;
+
 	expect(() =>
+		serializer.serialize(<div>{promisedChild}</div>)
+	).toThrowErrorMatchingInlineSnapshot(
+		`[TypeError: [vitest-react-serializer] Failed to render component. Promise children can’t be serialized because synchronous access to their values isn’t guaranteed]`
+	);
+});
+
+test('renders children from single-use iterables', () => {
+	const iterator = new Map([
+		['foo', <li key="foo">foo</li>],
+		['bar', <li key="bar">bar</li>],
+	]).values();
+
+	// Avoid React’s iterator warning while keeping the iterable single-use
+	const items = { [Symbol.iterator]: () => iterator };
+
+	expect(serializer.serialize(<ul>{items}</ul>)).toMatchInlineSnapshot(`
+		"<ul>
+		  <li>foo</li>
+		  <li>bar</li>
+		</ul>"
+	`);
+});
+
+test('serializes synchronous `Suspense` content', () => {
+	expect(
 		serializer.serialize(
 			<Suspense fallback={<em>bar</em>}>
 				<strong>foo</strong>
 			</Suspense>
 		)
-	).toThrow(TypeError);
+	).toMatchInlineSnapshot(`"<strong>foo</strong>"`);
+});
+
+test('rejects `Suspense` fallbacks inside components', () => {
+	const SuspendsAtRuntime = () => use(new Promise<string>(() => {}));
+
+	const Page = () => (
+		<Suspense fallback={<em>bar</em>}>
+			<SuspendsAtRuntime />
+		</Suspense>
+	);
+
+	expect(() => serializer.serialize(<Page />)).toThrow(TypeError);
 });
 
 test('serializes HTML', () => {

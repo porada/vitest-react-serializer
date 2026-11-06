@@ -1,10 +1,22 @@
-import { createContext, forwardRef, lazy, memo, Suspense } from 'react';
+import type { ReactElement } from 'react';
+import {
+	Activity,
+	createContext,
+	createElement,
+	forwardRef,
+	lazy,
+	memo,
+	Suspense,
+	use,
+} from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { expect, test } from 'vitest';
 import {
 	assertSynchronousReactTree,
-	createRenderingErrorMessage,
+	createSuspensionErrorMessage,
 	isReactSuspensionError,
 	isReactThenable,
+	renderStaticMarkup,
 } from './index.ts';
 
 test('accepts synchronous React trees', () => {
@@ -26,6 +38,69 @@ test('accepts synchronous React trees', () => {
 	).not.toThrow();
 });
 
+test('leaves invalid element types to React', () => {
+	expect(() =>
+		assertSynchronousReactTree(
+			<div>{createElement(undefined as never)}</div>
+		)
+	).not.toThrow();
+	expect(() =>
+		assertSynchronousReactTree(<div>{createElement(null as never)}</div>)
+	).not.toThrow();
+});
+
+test('skips children supplied to custom components', () => {
+	const AsyncComponent = async () => {
+		await Promise.resolve();
+		return <strong>foo</strong>;
+	};
+
+	const Show = ({
+		children,
+		when,
+	}: {
+		children: ReactElement;
+		when: boolean;
+	}) => (when ? children : null);
+
+	expect(() =>
+		assertSynchronousReactTree(
+			<Show when={false}>
+				<AsyncComponent />
+			</Show>
+		)
+	).not.toThrow();
+});
+
+test('rejects promises in children rendered directly by React', () => {
+	const Context = createContext('foo');
+	const promise = Promise.resolve(<strong>bar</strong>);
+
+	expect(() => assertSynchronousReactTree(<div>{promise}</div>)).toThrow(
+		TypeError
+	);
+	expect(() => assertSynchronousReactTree(<>{promise}</>)).toThrow(TypeError);
+	expect(() =>
+		assertSynchronousReactTree(<Context value="baz">{promise}</Context>)
+	).toThrow(TypeError);
+	expect(() => assertSynchronousReactTree(<ul>{[[promise]]}</ul>)).toThrow(
+		TypeError
+	);
+});
+
+test('checks only visible `Activity` children', () => {
+	const promise = Promise.resolve(<strong>foo</strong>);
+
+	expect(() =>
+		assertSynchronousReactTree(<Activity mode="hidden">{promise}</Activity>)
+	).not.toThrow();
+	expect(() =>
+		assertSynchronousReactTree(
+			<Activity mode="visible">{promise}</Activity>
+		)
+	).toThrow(TypeError);
+});
+
 test('identifies React suspension errors', () => {
 	expect(
 		isReactSuspensionError(
@@ -45,16 +120,20 @@ test('identifies React thenables', () => {
 	expect(isReactThenable({ then: true })).toBe(false);
 	expect(isReactThenable({})).toBe(false);
 	expect(isReactThenable(null)).toBe(false);
-	expect(isReactThenable(() => {})).toBe(false);
+	expect(isReactThenable(Object.assign(() => {}, { then: () => {} }))).toBe(
+		false
+	);
 });
 
-test('prefixes upstream React rendering errors', () => {
-	const error = new Error('Upstream rendering error');
+test('adds serializer context to React suspension errors', () => {
+	const error = new Error(
+		'A component suspended while responding to synchronous input'
+	);
 
-	expect(createRenderingErrorMessage(error)).toMatchInlineSnapshot(`
-		"[vitest-react-serializer] Failed to render component:
+	expect(createSuspensionErrorMessage(error)).toMatchInlineSnapshot(`
+		"[vitest-react-serializer] Failed to render component. Snapshot serializers run synchronously, but a component suspended:
 
-		Upstream rendering error"
+		A component suspended while responding to synchronous input"
 	`);
 });
 
@@ -81,21 +160,12 @@ test('rejects unsupported React component types', () => {
 	expect(() =>
 		assertSynchronousReactTree(<AsyncComponent />)
 	).toThrowErrorMatchingInlineSnapshot(
-		`[TypeError: [vitest-react-serializer] Failed to render component. Async components are unsupported because they can’t be serialized deterministically]`
-	);
-	expect(() =>
-		assertSynchronousReactTree(
-			<Suspense fallback={<em>bar</em>}>
-				<strong>foo</strong>
-			</Suspense>
-		)
-	).toThrowErrorMatchingInlineSnapshot(
-		`[TypeError: [vitest-react-serializer] Failed to render component. \`Suspense\` is unsupported because it can’t be serialized deterministically]`
+		`[TypeError: [vitest-react-serializer] Failed to render component. Async components can’t be serialized because snapshots are generated synchronously]`
 	);
 	expect(() =>
 		assertSynchronousReactTree(<LazyComponent />)
 	).toThrowErrorMatchingInlineSnapshot(
-		`[TypeError: [vitest-react-serializer] Failed to render component. Lazy components are unsupported because they can’t be serialized deterministically]`
+		`[TypeError: [vitest-react-serializer] Failed to render component. Lazy components can’t be serialized because they aren’t guaranteed to render synchronously]`
 	);
 	expect(() =>
 		assertSynchronousReactTree(<MemoizedAsyncComponent />)
@@ -103,4 +173,70 @@ test('rejects unsupported React component types', () => {
 	expect(() =>
 		assertSynchronousReactTree(<AsyncForwardRefComponent />)
 	).toThrow(TypeError);
+});
+
+test('matches `renderToStaticMarkup` output', () => {
+	const element = (
+		<p>
+			foo {1}
+			<Suspense fallback={<em>bar</em>}>
+				<strong>baz</strong>
+			</Suspense>
+			<Activity mode="visible">qux</Activity>
+		</p>
+	);
+
+	expect(renderStaticMarkup(element)).toBe(renderToStaticMarkup(element));
+});
+
+test('rejects rendered `Suspense` fallbacks', () => {
+	const SuspendsAtRuntime = () => use(new Promise<string>(() => {}));
+
+	expect(() =>
+		renderStaticMarkup(
+			<Suspense fallback={<em>foo</em>}>
+				<SuspendsAtRuntime />
+			</Suspense>
+		)
+	).toThrowErrorMatchingInlineSnapshot(
+		`[TypeError: [vitest-react-serializer] Failed to render component. \`Suspense\` fallbacks can’t be serialized because they conceal suspended or failed renders]`
+	);
+});
+
+test('includes errors behind rendered `Suspense` fallbacks', () => {
+	const SuspendsAtRuntime = () => use(new Promise<string>(() => {}));
+
+	const ThrowsAtRuntime = () => {
+		throw new Error('Thrown <Component /> error');
+	};
+
+	const ThrowsNonError = () => {
+		throw 'Thrown <Component /> value';
+	};
+
+	expect(() =>
+		renderStaticMarkup(
+			<>
+				<Suspense fallback={<em>foo</em>}>
+					<SuspendsAtRuntime />
+				</Suspense>
+				<Suspense fallback={<em>bar</em>}>
+					<ThrowsAtRuntime />
+				</Suspense>
+				<Suspense fallback={<em>baz</em>}>
+					<ThrowsNonError />
+				</Suspense>
+			</>
+		)
+	).toThrowErrorMatchingInlineSnapshot(`
+		[TypeError: [vitest-react-serializer] Failed to render component. \`Suspense\` fallbacks can’t be serialized because they conceal suspended or failed renders:
+
+		Switched to client rendering because the server rendering errored:
+
+		Thrown <Component /> error
+
+		Switched to client rendering because the server rendering errored:
+
+		Thrown <Component /> value]
+	`);
 });

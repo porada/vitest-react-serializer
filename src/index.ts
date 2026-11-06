@@ -1,14 +1,12 @@
 import type { ReactNode } from 'react';
 import type { SnapshotSerializer } from 'vitest';
 import { isValidElement } from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 import formatHTML from './format-html/index.ts';
 import {
 	assertSynchronousReactTree,
-	createChildrenRenderingErrorMessage,
-	createRenderingErrorMessage,
+	createSuspensionErrorMessage,
 	isReactSuspensionError,
-	isReactThenable,
+	renderStaticMarkup,
 } from './react-compatibility/index.ts';
 
 export default {
@@ -20,17 +18,11 @@ export default {
 		let minified: string;
 
 		try {
-			assertSynchronousReactTree(value as ReactNode);
-			minified = renderToStaticMarkup(value as ReactNode);
+			assertSynchronousReactTree(value);
+			minified = renderStaticMarkup(value as ReactNode);
 		} catch (error) {
 			if (isReactSuspensionError(error)) {
-				throw new TypeError(createRenderingErrorMessage(error), {
-					cause: error,
-				});
-			}
-
-			if (isReactThenable(error)) {
-				throw new TypeError(createChildrenRenderingErrorMessage(), {
+				throw new TypeError(createSuspensionErrorMessage(error), {
 					cause: error,
 				});
 			}

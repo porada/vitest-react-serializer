@@ -83,7 +83,7 @@ beforeAll(() => {
 });
 ```
 
-Please note that only React trees that render synchronously can be serialized. Async or lazy components, `<Suspense>`, and promises passed as children are unsupported.
+Please note that the serializer can only snapshot components that render synchronously.
 
 ## Related
 
