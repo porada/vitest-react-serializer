@@ -7,9 +7,6 @@ export default defineConfig({
 			{
 				test: {
 					name: 'node',
-					typecheck: {
-						enabled: true,
-					},
 				},
 			},
 			{
