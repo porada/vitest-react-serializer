@@ -12,7 +12,11 @@ import {
 } from './react-compatibility/index.ts';
 
 export default {
-	serialize(value, _config?: unknown, indentation = '') {
+	serialize(
+		value,
+		config?: { readonly indent?: string; readonly min?: boolean },
+		indentation = ''
+	) {
 		let minified: string;
 
 		try {
@@ -34,7 +38,15 @@ export default {
 			throw error;
 		}
 
-		return formatHTML(minified).replaceAll('\n', `\n${indentation}`);
+		// Treat an empty `indent` as `min`. The formatter rejects zero widths
+		if (config?.indent === '' || config?.min) {
+			return minified;
+		}
+
+		return formatHTML(minified, config?.indent?.length).replaceAll(
+			'\n',
+			`\n${indentation}`
+		);
 	},
 	test(value) {
 		return isValidElement(value as unknown);

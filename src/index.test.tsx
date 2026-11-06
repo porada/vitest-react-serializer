@@ -1,10 +1,24 @@
-import type { SnapshotSerializer } from 'vitest';
+import type { ReactNode } from 'react';
 import { Suspense, use } from 'react';
 import { expect, expectTypeOf, test } from 'vitest';
 import serializer, * as exports from './index.ts';
 
+const TEST_JSX = (
+	<ul>
+		<li>foo</li>
+		<li>bar</li>
+	</ul>
+);
+
 test('exposes correct public API', () => {
-	expectTypeOf(serializer).toExtend<SnapshotSerializer>();
+	expectTypeOf(serializer).toEqualTypeOf<{
+		readonly serialize: (
+			value: any,
+			config?: { readonly indent?: string; readonly min?: boolean },
+			indentation?: string
+		) => string;
+		readonly test: (value: any) => boolean;
+	}>();
 
 	expect({ ...exports }).toMatchInlineSnapshot(`
 		{
@@ -252,7 +266,7 @@ test('respects indentation', () => {
 
 	expect.addSnapshotSerializer(serializer);
 
-	const nest = (children: React.ReactNode) => ({
+	const nest = (children: ReactNode) => ({
 		props: {
 			children,
 		},
@@ -288,4 +302,32 @@ test('respects indentation', () => {
 		  },
 		}
 	`);
+});
+
+test('respects `indent`', () => {
+	expect(serializer.serialize(TEST_JSX, { indent: '    ' }))
+		.toMatchInlineSnapshot(`
+		"<ul>
+		    <li>foo</li>
+		    <li>bar</li>
+		</ul>"
+	`);
+});
+
+test('respects `min`', () => {
+	expect(serializer.serialize(TEST_JSX, { min: true })).toMatchInlineSnapshot(
+		`"<ul><li>foo</li><li>bar</li></ul>"`
+	);
+});
+
+test('minifies output for an empty `indent`', () => {
+	expect(serializer.serialize(TEST_JSX, { indent: '', min: false })).toBe(
+		serializer.serialize(TEST_JSX, { min: true })
+	);
+});
+
+test('rejects `indent` widths beyond the formatter’s limit', () => {
+	expect(() =>
+		serializer.serialize(TEST_JSX, { indent: ' '.repeat(999) })
+	).toThrow(SyntaxError);
 });

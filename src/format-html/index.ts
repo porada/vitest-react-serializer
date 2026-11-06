@@ -21,10 +21,11 @@ async function loadFormatter() {
  * Formats HTML with the initialized WASM formatter. The output follows Vitest’s
  * built-in snapshot serializers, which rely on `pretty-format` under the hood.
  */
-export default function formatHTML(text: string): string {
+export default function formatHTML(text: string, indentWidth = 2): string {
 	try {
 		const formatted = format(text, 'index.html', {
 			indentStyle: 'space',
+			indentWidth,
 			markup: {
 				'closingTagLineBreakForEmpty': 'never',
 				'html.void.selfClosing': true,
@@ -35,7 +36,12 @@ export default function formatHTML(text: string): string {
 			},
 		});
 
-		return formatted.trim();
+		// Preserve non-breaking spaces by trimming only ASCII whitespace.
+		// The lookbehind prevents repeated scans of the same whitespace run
+		return formatted.replaceAll(
+			/^[\t\n\f\r ]+|(?<![\t\n\f\r ])[\t\n\f\r ]+$/gu,
+			''
+		);
 	} catch (error) {
 		throw new SyntaxError(
 			`[vitest-react-serializer] Failed to format rendered component HTML:\n\n${String(error)}`,
