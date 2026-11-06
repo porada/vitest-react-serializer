@@ -4,18 +4,15 @@ autoInstallPeers: false
 
 color: always
 
-engineStrict: true
-
 gitChecks: false
 
 lockfile:
   includeResolutionSettings: true
 
 minimumReleaseAgeExclude:
-  - '@prettier/*'
   - '@standard-config/*'
   - '@vitest/*'
-  - prettier
+  - '@wasm-fmt/*'
   - vitest
 
 overrides:
@@ -30,7 +27,7 @@ overrides:
   vite-plus>oxlint: latest
   vite-plus>oxlint-tsgolint: latest
   vite-plus>vitest: '-'
-  vite: npm:@voidzero-dev/vite-plus-core@1.4.0
+  vite: npm:@voidzero-dev/vite-plus-core@1.5.0
 
 peerDependencyRules:
   allowAny:
@@ -41,7 +38,7 @@ peerDependencyRules:
     - vitest
   ignoreMissing:
     - eslint
-    - vitest
+    - vite
 
 strictPeerDependencies: true
 
