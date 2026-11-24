@@ -67,7 +67,7 @@
 		"format:check": "prettier --check --ignore-unknown .",
 		"lint": "vp lint --fix",
 		"lint:check": "vp lint --deny-warnings --type-check",
-		"prepack": "pnpm run '/^(format:check|lint:check|test:node|typecheck)$/' && pnpm build",
+		"prepack": "pnpm run '/^(format:check|lint:check|test|typecheck)$/' && pnpm build",
 		"prepare": "vp config --hooks-dir .hooks",
 		"test": "vitest run",
 		"test:node": "vitest run --project node",
