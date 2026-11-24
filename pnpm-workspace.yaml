@@ -16,6 +16,7 @@ minimumReleaseAgeExclude:
   - vitest
 
 overrides:
+  vite: npm:@voidzero-dev/vite-plus-core@latest
   vite-plus>@vitest/browser: '-'
   vite-plus>@vitest/browser-preview: '-'
   vite-plus>@vitest/mocker: '-'
@@ -25,9 +26,8 @@ overrides:
   vite-plus>@vitest/utils: '-'
   vite-plus>oxfmt: '-'
   vite-plus>oxlint: latest
-  vite-plus>oxlint-tsgolint: latest
+  vite-plus>tsrs: latest
   vite-plus>vitest: '-'
-  vite: npm:@voidzero-dev/vite-plus-core@latest
 
 peerDependencyRules:
   allowAny:
@@ -37,6 +37,7 @@ peerDependencyRules:
     - vitest
   ignoreMissing:
     - eslint
+    - vite
 
 strictPeerDependencies: true
 
