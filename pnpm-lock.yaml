@@ -208,13 +208,13 @@ importers:
     devDependencies:
       '@standard-config/oxlint':
         specifier: ^2.13.0
-        version: 2.13.0(@standard-config/oxlint-react@2.13.0)(@standard-config/oxlint-stylistic@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))
+        version: 2.13.0(@standard-config/oxlint-react@2.13.0)(@standard-config/oxlint-stylistic@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))
       '@standard-config/oxlint-react':
         specifier: ^2.13.0
-        version: 2.13.0(@standard-config/oxlint@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)
+        version: 2.13.0(@standard-config/oxlint@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)
       '@standard-config/oxlint-stylistic':
         specifier: ^2.13.0
-        version: 2.13.0(@standard-config/oxlint@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)
+        version: 2.13.0(@standard-config/oxlint@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)
       '@standard-config/prettier':
         specifier: ^1.23.1
         version: 1.23.1(prettier@3.10.1)
@@ -228,11 +228,11 @@ importers:
         specifier: ^19.3.0
         version: 19.3.0(@types/react@19.3.0)
       '@vitest/browser-playwright':
-        specifier: ^5.1.1
-        version: 5.1.1(playwright@1.65.1)(vitest@5.1.1)
+        specifier: ^5.1.2
+        version: 5.1.2(playwright@1.65.1)(vitest@5.1.2)
       '@vitest/coverage-v8':
-        specifier: ^5.1.1
-        version: 5.1.1(@vitest/browser@5.1.1)(vitest@5.1.1)
+        specifier: ^5.1.2
+        version: 5.1.2(@vitest/browser@5.1.2)(vitest@5.1.2)
       playwright:
         specifier: ^1.65.1
         version: 1.65.1
@@ -253,10 +253,10 @@ importers:
         version: 6.0.3
       vite-plus:
         specifier: ^1.8.0
-        version: 1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)
+        version: 1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)
       vitest:
-        specifier: ^5.1.1
-        version: 5.1.1(@vitest/browser-playwright@5.1.1)(@vitest/coverage-v8@5.1.1)(@vitest/ui@5.1.1)
+        specifier: ^5.1.2
+        version: 5.1.2(@vitest/browser-playwright@5.1.2)(@vitest/coverage-v8@5.1.2)(@vitest/ui@5.1.2)
 
 packages:
 
@@ -836,22 +836,22 @@ packages:
     resolution: {integrity: sha512-XSZmOtMUbWCBIM+2BK134FyMFxmll1mW2mPLk/PSwYQYzGIPMgJAqL929U4qXVizLv7Xq5b7r41/o7Ombuwk0g==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@vitest/browser-playwright@5.1.1':
-    resolution: {integrity: sha512-GYitBgjG7/+TkhkFXiPEYvEV1DtvwIVuFi5Jg0QUC6RK7Dt9pCMlI0W5WmKs8FFU7TBq3mc7VIg4oq6cDyzzgA==}
+  '@vitest/browser-playwright@5.1.2':
+    resolution: {integrity: sha512-fwkxsv+FGONg0liOTRJ0zEvxf0phquLCshOM3Ufg3o/zAvb/5bN3GPT0Y/pcx6V3+skbDF7FZu++yaOChFQIjA==}
     peerDependencies:
       playwright: '*'
-      vitest: 5.1.1
+      vitest: 5.1.2
 
-  '@vitest/browser@5.1.1':
-    resolution: {integrity: sha512-xxWAtzfr7tuRXtKLdyCY1hWEP74oLeb7hrGMFcoFBOTsvJnl5bmeQ9W2Wzzh8IJN1gHYp1eIRaduP/WHn+jUcA==}
+  '@vitest/browser@5.1.2':
+    resolution: {integrity: sha512-UvTlIB4osaz0vknd6wLEs8EOC2HVQ2XdzN8FFzXQTHfOpzEjWYMHtSYQpLstJkipMrr+XoqJyys44J9TgFNiXA==}
     peerDependencies:
-      vitest: 5.1.1
+      vitest: 5.1.2
 
-  '@vitest/coverage-v8@5.1.1':
-    resolution: {integrity: sha512-xL4NkbVx/UqqDHaXSOyvB8qsSoLQ+dVNGR9H2Bh/4ggQtmaPFNPUC9gZQwKZePLOQ6WDcgwXVnPulFW9eCHt0w==}
+  '@vitest/coverage-v8@5.1.2':
+    resolution: {integrity: sha512-VG0JLv0T4kr1fR6QAfe8PTou+Frc4t0u4j+oKgDH3djJpFawzBfGyX14/z56NXoCTNem3OEphzCJhc4DkE62xQ==}
     peerDependencies:
-      '@vitest/browser': 5.1.1
-      vitest: 5.1.1
+      '@vitest/browser': 5.1.2
+      vitest: 5.1.2
     peerDependenciesMeta:
       '@vitest/browser':
         optional: true
@@ -864,8 +864,8 @@ packages:
     resolution: {integrity: sha512-Qba+8OpQQAbWrmq3u1olh6jqE/vyW4OYJe6TLrrTBpXhjJhbY7Os69wyVvMQmNA64KJhGd5nQ/c7l4io8tPCHQ==}
     engines: {node: '>=22'}
 
-  '@vitest/mocker@5.1.1':
-    resolution: {integrity: sha512-b2OgTB4+3ImWIVafXKazJXwLKwQxUNnix6b3xUvUTMh7RyXlrtzoxfZr8aEz9zkHOMAS4K5lu3TvFWoiVeVTQg==}
+  '@vitest/mocker@5.1.2':
+    resolution: {integrity: sha512-UGc97wUIy0Ji2+9GxzHEJiOhiwkaukgE7VYcUNnjpX3sWnwQ8XogmNXX4WyOukxYgKb8Nh2XFa7KId0ZjpmVhQ==}
     peerDependencies:
       msw: ^2.4.9 || ^3.0.0
       vite: ^6.0.0 || ^7.0.0 || ^8.0.0
@@ -875,19 +875,19 @@ packages:
       vite:
         optional: true
 
-  '@vitest/pretty-format@5.1.1':
-    resolution: {integrity: sha512-25VrNCa2fxNyRv7VTtYBjJnC7hQkAzDLuSWJb8kHJATfCPe+5YPferPPDrSO7pcxik4+cBo4IXS2H7rf4OOXgg==}
+  '@vitest/pretty-format@5.1.2':
+    resolution: {integrity: sha512-aaeiHM63x1qrqbna6ojDhSc4IVZ7oTLPlpeqkkt2YwHTMo/uM6FhcCJiCeW75yFgn9i6yrUcIdZSRFv0YjqxTg==}
 
-  '@vitest/spy@5.1.1':
-    resolution: {integrity: sha512-6K8C6alQG1/Yc8/ZI22iJS7JEsxPdVzqtqDq+/xM4Z0mGVykemMVjLhqMy/q6/IHYG3kKD8hKSwRen/ZdyI9vQ==}
+  '@vitest/spy@5.1.2':
+    resolution: {integrity: sha512-PQl0/3+p9GaY71+MHywN6oyHfLhVDD5kcbm7oNRldA2F0ExMU3S8RQdnpteJ9gFAdK5P6KCgE6LqCpUgy57KzA==}
 
-  '@vitest/ui@5.1.1':
-    resolution: {integrity: sha512-qpNyZ9CAKhBCnWMZSYQMFJzcBvpqb7ssC9NHJUq8haNZkjC4rSMSmKZzMu7IYR1XMqiKOSIAF34FmOQkGP77Mw==}
+  '@vitest/ui@5.1.2':
+    resolution: {integrity: sha512-BLWlcNBuk8vb8RyJYU3ccizWsCRjB5vcuIKMSLK46ClZOR0d1z6PyyfmJ6bJHgWdJSDHTUjCIncni0Tlp2bkhw==}
     peerDependencies:
-      vitest: 5.1.1
+      vitest: 5.1.2
 
-  '@vitest/utils@5.1.1':
-    resolution: {integrity: sha512-CtwJP89ozg9RLHb70HM9jwzHnzZDaLTCovwr313CSRM6IkwNuIcORlZluW0zVNkmjJWBxPRLpvjnX6XhztjS2w==}
+  '@vitest/utils@5.1.2':
+    resolution: {integrity: sha512-SledZ6XVTrtJlEs3ecDbuFWddjmc4QFCs1biOOaLjZGn6EHRwZuTJxgRN8KjHEb6a79XRIEdH9BtbFFXVelQKQ==}
 
   '@voidzero-dev/vite-plus-core@8.3.8001':
     resolution: {integrity: sha512-7ODeiZLaa9LhVysGNAkf7qLQU//g7d6QpNY9Ljriy6B2wv7g6iUT8DYh3F6w6DmF0DyPA+MFiYgfVXV++W3OAw==}
@@ -1549,20 +1549,20 @@ packages:
       playwright:
         optional: true
 
-  vitest@5.1.1:
-    resolution: {integrity: sha512-trVmzUFOSraCZcI3uZIMD5FqBh4atFkC/XuJP/IU7qtyQay0FCs3Ia+0QiQ2JJwGyWG/xrcBoJNel2+O7kEZ0g==}
+  vitest@5.1.2:
+    resolution: {integrity: sha512-VIa2wXV208WraXUbzH+dQUrGcFpPuaiRA8HlhXS8R6/sy9cynw6OMqGj8fmAlH1hot7huTCtWUE14+FdXU3eLw==}
     engines: {node: ^22.12.0 || ^24.0.0 || >=26.0.0}
     hasBin: true
     peerDependencies:
       '@edge-runtime/vm': '*'
       '@opentelemetry/api': ^1.9.0
       '@types/node': ^22.0.0 || >=24.0.0
-      '@vitest/browser-playwright': 5.1.1
-      '@vitest/browser-preview': 5.1.1
+      '@vitest/browser-playwright': 5.1.2
+      '@vitest/browser-preview': 5.1.2
       '@vitest/browser-webdriverio': ^5.0.0-beta.5 || >=5.0.0
-      '@vitest/coverage-istanbul': 5.1.1
-      '@vitest/coverage-v8': 5.1.1
-      '@vitest/ui': 5.1.1
+      '@vitest/coverage-istanbul': 5.1.2
+      '@vitest/coverage-v8': 5.1.2
+      '@vitest/ui': 5.1.2
       happy-dom: '*'
       jsdom: '*'
       vite: ^6.4.0 || ^7.0.0 || ^8.0.0
@@ -1898,38 +1898,38 @@ snapshots:
       '@reteps/dockerfmt-linux-arm64': 0.5.4
       '@reteps/dockerfmt-linux-x64': 0.5.4
 
-  '@standard-config/oxlint-react@2.13.0(@standard-config/oxlint@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)':
+  '@standard-config/oxlint-react@2.13.0(@standard-config/oxlint@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)':
     dependencies:
       '@eslint-react/eslint-plugin': 5.30.6(typescript@6.0.3)
       eslint-plugin-react-you-might-not-need-an-effect: 1.3.1
-      oxlint: 1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1))
+      oxlint: 1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1))
     optionalDependencies:
-      '@standard-config/oxlint': 2.13.0(@standard-config/oxlint-react@2.13.0)(@standard-config/oxlint-stylistic@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))
+      '@standard-config/oxlint': 2.13.0(@standard-config/oxlint-react@2.13.0)(@standard-config/oxlint-stylistic@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))
     transitivePeerDependencies:
       - '@typescript/native'
       - eslint
       - supports-color
       - typescript
 
-  '@standard-config/oxlint-stylistic@2.13.0(@standard-config/oxlint@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)':
+  '@standard-config/oxlint-stylistic@2.13.0(@standard-config/oxlint@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)':
     dependencies:
-      '@stylistic/eslint-plugin': 6.0.1(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))
+      '@stylistic/eslint-plugin': 6.0.1(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))
       eslint-plugin-perfectionist: 5.14.0(typescript@6.0.3)
-      oxlint: 1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1))
+      oxlint: 1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1))
     optionalDependencies:
-      '@standard-config/oxlint': 2.13.0(@standard-config/oxlint-react@2.13.0)(@standard-config/oxlint-stylistic@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))
+      '@standard-config/oxlint': 2.13.0(@standard-config/oxlint-react@2.13.0)(@standard-config/oxlint-stylistic@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))
     transitivePeerDependencies:
       - '@typescript/native'
       - eslint
       - supports-color
       - typescript
 
-  '@standard-config/oxlint@2.13.0(@standard-config/oxlint-react@2.13.0)(@standard-config/oxlint-stylistic@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))':
+  '@standard-config/oxlint@2.13.0(@standard-config/oxlint-react@2.13.0)(@standard-config/oxlint-stylistic@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))':
     dependencies:
-      oxlint: 1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1))
+      oxlint: 1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1))
     optionalDependencies:
-      '@standard-config/oxlint-react': 2.13.0(@standard-config/oxlint@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)
-      '@standard-config/oxlint-stylistic': 2.13.0(@standard-config/oxlint@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)
+      '@standard-config/oxlint-react': 2.13.0(@standard-config/oxlint@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)
+      '@standard-config/oxlint-stylistic': 2.13.0(@standard-config/oxlint@2.13.0)(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))(typescript@6.0.3)
 
   '@standard-config/prettier@1.23.1(prettier@3.10.1)':
     dependencies:
@@ -1946,7 +1946,7 @@ snapshots:
     optionalDependencies:
       typescript: 6.0.3
 
-  '@stylistic/eslint-plugin@6.0.1(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))':
+  '@stylistic/eslint-plugin@6.0.1(oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)))':
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1
       '@typescript-eslint/types': 8.74.0
@@ -1954,7 +1954,7 @@ snapshots:
       espree: 11.2.0
       picomatch: 4.0.7
     optionalDependencies:
-      oxlint: 1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1))
+      oxlint: 1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1))
 
   '@tsrs/darwin-arm64@7.1.0-beta.tsrs5':
     optional: true
@@ -2048,30 +2048,30 @@ snapshots:
       '@typescript-eslint/types': 8.74.0
       eslint-visitor-keys: 5.0.1
 
-  '@vitest/browser-playwright@5.1.1(playwright@1.65.1)(vitest@5.1.1)':
+  '@vitest/browser-playwright@5.1.2(playwright@1.65.1)(vitest@5.1.2)':
     dependencies:
-      '@vitest/browser': 5.1.1(vitest@5.1.1)
-      '@vitest/mocker': 5.1.1
+      '@vitest/browser': 5.1.2(vitest@5.1.2)
+      '@vitest/mocker': 5.1.2
       playwright: 1.65.1
       tinyrainbow: 3.2.0
-      vitest: 5.1.1(@vitest/browser-playwright@5.1.1)(@vitest/coverage-v8@5.1.1)(@vitest/ui@5.1.1)
+      vitest: 5.1.2(@vitest/browser-playwright@5.1.2)(@vitest/coverage-v8@5.1.2)(@vitest/ui@5.1.2)
     transitivePeerDependencies:
       - bufferutil
       - msw
       - utf-8-validate
       - vite
 
-  '@vitest/browser@5.1.1(vitest@5.1.1)':
+  '@vitest/browser@5.1.2(vitest@5.1.2)':
     dependencies:
       '@blazediff/core': 1.10.0
-      '@vitest/mocker': 5.1.1
-      '@vitest/ui': 5.1.1(vitest@5.1.1)
-      '@vitest/utils': 5.1.1
+      '@vitest/mocker': 5.1.2
+      '@vitest/ui': 5.1.2(vitest@5.1.2)
+      '@vitest/utils': 5.1.2
       magic-string: 1.4.5
       pngjs: 7.0.0
       sirv: 3.0.2
       tinyrainbow: 3.2.0
-      vitest: 5.1.1(@vitest/browser-playwright@5.1.1)(@vitest/coverage-v8@5.1.1)(@vitest/ui@5.1.1)
+      vitest: 5.1.2(@vitest/browser-playwright@5.1.2)(@vitest/coverage-v8@5.1.2)(@vitest/ui@5.1.2)
       ws: 8.23.0
     transitivePeerDependencies:
       - bufferutil
@@ -2079,7 +2079,7 @@ snapshots:
       - utf-8-validate
       - vite
 
-  '@vitest/coverage-v8@5.1.1(@vitest/browser@5.1.1)(vitest@5.1.1)':
+  '@vitest/coverage-v8@5.1.2(@vitest/browser@5.1.2)(vitest@5.1.2)':
     dependencies:
       '@bcoe/v8-coverage': 1.0.2
       '@vitest/istanbul-lib-coverage': 2.1.1
@@ -2089,9 +2089,9 @@ snapshots:
       obug: 3.0.0
       std-env: 4.3.0
       tinyrainbow: 3.2.0
-      vitest: 5.1.1(@vitest/browser-playwright@5.1.1)(@vitest/coverage-v8@5.1.1)(@vitest/ui@5.1.1)
+      vitest: 5.1.2(@vitest/browser-playwright@5.1.2)(@vitest/coverage-v8@5.1.2)(@vitest/ui@5.1.2)
     optionalDependencies:
-      '@vitest/browser': 5.1.1(vitest@5.1.1)
+      '@vitest/browser': 5.1.2(vitest@5.1.2)
 
   '@vitest/istanbul-lib-coverage@2.1.1': {}
 
@@ -2099,32 +2099,32 @@ snapshots:
     dependencies:
       '@vitest/istanbul-lib-coverage': 2.1.1
 
-  '@vitest/mocker@5.1.1':
+  '@vitest/mocker@5.1.2':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
-      '@vitest/spy': 5.1.1
+      '@vitest/spy': 5.1.2
       estree-walker: 3.0.3
       magic-string: 1.4.5
 
-  '@vitest/pretty-format@5.1.1':
+  '@vitest/pretty-format@5.1.2':
     dependencies:
       tinyrainbow: 3.2.0
 
-  '@vitest/spy@5.1.1': {}
+  '@vitest/spy@5.1.2': {}
 
-  '@vitest/ui@5.1.1(vitest@5.1.1)':
+  '@vitest/ui@5.1.2(vitest@5.1.2)':
     dependencies:
-      '@vitest/utils': 5.1.1
+      '@vitest/utils': 5.1.2
       fflate: 0.8.3
       flatted: 3.4.4
       pathe: 2.0.3
       sirv: 3.0.2
       tinyrainbow: 3.2.0
-      vitest: 5.1.1(@vitest/browser-playwright@5.1.1)(@vitest/coverage-v8@5.1.1)(@vitest/ui@5.1.1)
+      vitest: 5.1.2(@vitest/browser-playwright@5.1.2)(@vitest/coverage-v8@5.1.2)(@vitest/ui@5.1.2)
 
-  '@vitest/utils@5.1.1':
+  '@vitest/utils@5.1.2':
     dependencies:
-      '@vitest/pretty-format': 5.1.1
+      '@vitest/pretty-format': 5.1.2
       convert-source-map: 2.0.0
       tinyrainbow: 3.2.0
 
@@ -2484,7 +2484,7 @@ snapshots:
       '@oxc-parser/binding-win32-ia32-msvc': 0.158.0
       '@oxc-parser/binding-win32-x64-msvc': 0.158.0
 
-  oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)):
+  oxlint@1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)):
     optionalDependencies:
       '@oxlint/binding-android-arm-eabi': 1.95.0
       '@oxlint/binding-android-arm64': 1.95.0
@@ -2505,7 +2505,7 @@ snapshots:
       '@oxlint/binding-win32-arm64-msvc': 1.95.0
       '@oxlint/binding-win32-ia32-msvc': 1.95.0
       '@oxlint/binding-win32-x64-msvc': 1.95.0
-      vite-plus: 1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)
+      vite-plus: 1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)
 
   package-manager-detector@1.9.0: {}
 
@@ -2626,16 +2626,16 @@ snapshots:
 
   typescript@6.0.3: {}
 
-  vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1):
+  vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1):
     dependencies:
       '@oxc-project/runtime': 0.159.0
       '@oxc-project/types': 0.159.0
       '@oxlint/plugins': 1.94.0
-      oxlint: 1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.1)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1))
+      oxlint: 1.95.0(vite-plus@1.8.0(@vitest/browser-playwright@5.1.2)(playwright@1.65.1)(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1))
       tsrs: 7.1.0-beta.tsrs5
       vite: '@voidzero-dev/vite-plus-core@8.3.8001(publint@0.3.25)(typescript@6.0.3)(yaml@2.9.1)'
     optionalDependencies:
-      '@vitest/browser-playwright': 5.1.1(playwright@1.65.1)(vitest@5.1.1)
+      '@vitest/browser-playwright': 5.1.2(playwright@1.65.1)(vitest@5.1.2)
       '@voidzero-dev/vite-plus-darwin-arm64': 1.8.0
       '@voidzero-dev/vite-plus-darwin-x64': 1.8.0
       '@voidzero-dev/vite-plus-linux-arm64-gnu': 1.8.0
@@ -2669,10 +2669,10 @@ snapshots:
       - vue-tsc
       - yaml
 
-  vitest@5.1.1(@vitest/browser-playwright@5.1.1)(@vitest/coverage-v8@5.1.1)(@vitest/ui@5.1.1):
+  vitest@5.1.2(@vitest/browser-playwright@5.1.2)(@vitest/coverage-v8@5.1.2)(@vitest/ui@5.1.2):
     dependencies:
       '@types/chai': 5.2.3
-      '@vitest/mocker': 5.1.1
+      '@vitest/mocker': 5.1.2
       chai: 6.3.0
       es-module-lexer: 2.3.2
       expect-type: 1.4.0
@@ -2685,9 +2685,9 @@ snapshots:
       tinyglobby: 0.2.17
       why-is-node-running: 3.2.1
     optionalDependencies:
-      '@vitest/browser-playwright': 5.1.1(playwright@1.65.1)(vitest@5.1.1)
-      '@vitest/coverage-v8': 5.1.1(@vitest/browser@5.1.1)(vitest@5.1.1)
-      '@vitest/ui': 5.1.1(vitest@5.1.1)
+      '@vitest/browser-playwright': 5.1.2(playwright@1.65.1)(vitest@5.1.2)
+      '@vitest/coverage-v8': 5.1.2(@vitest/browser@5.1.2)(vitest@5.1.2)
+      '@vitest/ui': 5.1.2(vitest@5.1.2)
     transitivePeerDependencies:
       - msw
 
