@@ -16,7 +16,6 @@ minimumReleaseAgeExclude:
   - vitest
 
 overrides:
-  vite: npm:@voidzero-dev/vite-plus-core@latest
   vite-plus>@vitest/browser: '-'
   vite-plus>@vitest/browser-preview: '-'
   vite-plus>@vitest/mocker: '-'
